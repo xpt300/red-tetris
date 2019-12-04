@@ -34,6 +34,12 @@ const initEngine = io => {
       if(action.type === 'server/ping'){
         socket.emit('action', {type: 'pong'})
       }
+      if(action.type === 'username'){
+        socket.username = action.value
+        socket.emit('login', {
+          username: socket.username,
+        });
+      }
     })
   })
 }
