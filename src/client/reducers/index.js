@@ -1,5 +1,14 @@
+import { combineReducers } from 'redux';
+
 import alert from './alert'
-export default alert
+import login from './login'
+
+const reducers = combineReducers({
+    alert,
+    login
+})
+
+export default reducers;
 
 
 

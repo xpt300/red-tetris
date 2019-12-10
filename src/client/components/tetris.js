@@ -1,33 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+
+import drawBoard from '../functions/drawBoard'
+import gameLoop from '../functions/gameLoop'
 
 const containerTetris = {
   display: "flex",
-  alignItems: "stretch",
+  alignItems: 'stretch',
+  flexWrap: 'wrap',
+  alignContent: 'center',
+  width: '40vh',
+  height: '80vh',
+  padding: '10vh 35vw 10vh 35vw',
+  border: '2px solid black',
+  backgroundColor: 'grey',
 }
 
-const box = {
-  width: "50px",
-  height: "50px",
-  backgroundColor: "red"
-}
-
-
-const lines = () => {
-  let indents = [];
-  for (let i = 0; i < 20; i++) {
-    indents.push(<div style={box} key={i}/>);
-  }
-  return indents
-}
-
-const tab = () => {
-  let indents = [];
-  for (let i = 0; i < 10; i++) {
-    indents.push(
-    <div key={i}> {lines()} </div>
-    );
-  }
-  return indents
+const containerText = {
+  textAlign: 'center',
+  width: '100%',
+  heigth: '100%',
 }
 
 export const Tetris = () => {
@@ -36,10 +27,54 @@ export const Tetris = () => {
   )
 }
 
+const text = () => {
+  return (
+    <div style={containerText}>
+      Press 'Enter' for start
+    </div>
+  )
+}
+
 export const Board = () => {
+  const [enter, setEnter] = useState(false)
+
+  let board = [
+    [0,0,0,0,1,1,0,0,0,0],
+    [0,0,0,0,1,1,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0]
+  ];
+
+  useEffect(() => {
+    window.addEventListener('keypress', (e) => {
+      if (e.charCode === 13) {
+        setEnter(true)
+      }
+    })
+  })
+
   return (
     <div style={containerTetris}>
-      {tab()}
+      {
+        drawBoard(board),
+        gameLoop(board)
+      }
     </div>
   )
 }
