@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 
 import drawBoard from '../functions/drawBoard'
-import gameLoop from '../functions/gameLoop'
+import useInterval from '../functions/useInterval'
+import {moveShapesDown} from '../functions/moveShapes'
 
 const containerTetris = {
   display: "flex",
@@ -10,7 +11,6 @@ const containerTetris = {
   alignContent: 'center',
   width: '40vh',
   height: '80vh',
-  padding: '10vh 35vw 10vh 35vw',
   border: '2px solid black',
   backgroundColor: 'grey',
 }
@@ -35,6 +35,7 @@ const text = () => {
   )
 }
 
+
 export const Board = () => {
   const [enter, setEnter] = useState(false)
 
@@ -57,23 +58,20 @@ export const Board = () => {
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0]
+    [0,0,0,0,11,11,0,0,0,0],
+    [0,0,0,0,11,11,0,0,0,0]
   ];
 
-  useEffect(() => {
-    window.addEventListener('keypress', (e) => {
-      if (e.charCode === 13) {
-        setEnter(true)
-      }
-    })
-  })
+  useInterval(() => {
+    board = moveShapesDown(board)
+    console.log(board);
+    // drawBoard(board)
+  }, 1000);
 
   return (
     <div style={containerTetris}>
       {
-        drawBoard(board),
-        gameLoop(board)
+        drawBoard(board)
       }
     </div>
   )

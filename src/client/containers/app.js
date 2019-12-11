@@ -12,7 +12,7 @@ import Popup from '../components/popup'
 const container = {
   display: "flex",
   justifyContent: "space-around",
-  alignItems: "stretch",
+  alignItems: "center",
   flexWrap: "nowrap",
   height:"100vh"
 }
@@ -26,9 +26,9 @@ const App = ({message, popup, closePopup, handleLogin}) => {
         closePopup={closePopup}/> 
         : null} */}
       <div style={container}>
-        {/* <Aside /> */}
+        <Aside />
         <Tetris />
-        {/* <Aside /> */}
+        <Aside />
       </div>
     </Fragment>
   )

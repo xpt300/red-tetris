@@ -8,8 +8,9 @@ export const moveShapesDown = (board) => {
     let canMove = true;
     for (let y=0; y < 19; y++) {
         for (let x=0; x < 10; x++) {
-            if (y === board.lenght - 1 || board[y+1][x] > 10) {
+            if (y === 19 || board[y+1][x] > 10) {
                 canMove = false;
+                console.log(x,y, board.length);
             }
         }
     }
