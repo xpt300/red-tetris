@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
+import React, { Fragment, useEffect } from 'react'
+import { connect, useDispatch } from 'react-redux'
 import openSocket from 'socket.io-client';
 
 
@@ -17,7 +17,21 @@ const container = {
   height:"100vh"
 }
 
-const App = ({message, popup, closePopup, handleLogin}) => {
+const App = ({message, start, win, end}) => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    function handlekeyupEvent (event) {
+      if (event.keyCode === 13) {
+        dispatch(startGame)
+      }
+    }
+    document.addEventListener('keyup', handlekeyupEvent)
+    return () => {
+      document.addEventListener('keyup', handlekeyupEvent)
+    }
+  }, [start])
+
   return (
     <Fragment>
       {/* {popup ? 
@@ -27,7 +41,7 @@ const App = ({message, popup, closePopup, handleLogin}) => {
         : null} */}
       <div style={container}>
         <Aside />
-        <Tetris />
+        {start ? <Tetris /> : 'hihihi'}
         <Aside />
       </div>
     </Fragment>
@@ -38,13 +52,16 @@ const mapStateToProps = (state) => {
   return {
     message: state.message,
     login: state.login.name,
-    popup: state.login.popup
+    popup: state.login.popup,
+    win: state.game.win,
+    start: state.game.start,
+    end: state.game.end
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleLogin: (login) => dispatch({ type: 'LOGIN', name: login}),
+    startGame: () => dispatch({ type: 'START'}),
     closePopup: (keyPress) => dispatch({ type: 'ENTER', key: keyPress})
   }
 }
