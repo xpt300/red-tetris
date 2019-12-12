@@ -15,12 +15,10 @@ const reducer = (state = initialState , action) => {
         win: true
       }
     case START:
-      if (action.key === 'Enter') {
-        return {
-          ...state,
-          start: true
-        }
-    }
+      return {
+        ...state,
+        start: true
+      }
     case END:
         return {
           ...state,

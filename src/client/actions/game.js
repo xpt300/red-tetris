@@ -2,9 +2,9 @@ export const WIN = 'WIN'
 export const START = 'START'
 export const END = 'END'
 
-export const login = (login) => {
+export const game = (game) => {
   return {
-    type: LOGIN,
+    type: GAME,
     login
   }
 }

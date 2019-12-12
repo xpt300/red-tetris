@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import drawBoard from '../functions/drawBoard'
 import useInterval from '../functions/useInterval'
@@ -62,15 +63,22 @@ let board = [
 export const Board = () => {
   const [enter, setEnter] = useState(false)
   const [html, setHtml] = useState(drawBoard(board))
+  const [delay, setDelay] = useState(1000)
+  const dispatch = useDispatch()
+  const game = useSelector(state => state.game)
 
   
   let htmlBoard = drawBoard(board)
 
+  const endGame = () => {
+    console.log('llool');
+    dispatch({ type: 'WIN' })
+  }
+
   useInterval(() => {
     board = moveShapesDown(board)
     setHtml(drawBoard(board))
-    console.log(board);
-  }, 1000);
+  }, game.end ? null : delay);
 
   useEffect(() => {
     function handlekeyupEvent (event) {
@@ -81,21 +89,19 @@ export const Board = () => {
         board = moveShapesRight(board)
         setHtml(drawBoard(board))
       } else if (event.keyCode === 40) {
-        board = moveShapesDown(board)
+        board = moveShapesDown(board, endGame)
         setHtml(drawBoard(board))
       }
     }
-    document.addEventListener('keyup', handlekeyupEvent)
+    document.addEventListener('keydown', game.end ? null : handlekeyupEvent)
     return () => {
-      document.addEventListener('keyup', handlekeyupEvent)
+      document.addEventListener('keydown', game.end ? null : handlekeyupEvent)
     }
   }, [])
 
   return (
     <div style={containerTetris}>
-      {
-        htmlBoard
-      }
+      { htmlBoard }
     </div>
   )
 }

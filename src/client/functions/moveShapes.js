@@ -1,6 +1,4 @@
-import { brotliCompress } from "zlib";
-
-const checkLines = (board) => {
+const checkLines = (board, endGame) => {
     for (let y = 0; y < 20; y++) {
         let fullLines = true
         for (let x = 0; x < 10; x++) {
@@ -8,6 +6,7 @@ const checkLines = (board) => {
                 fullLines = false
             } else if (board[y][x] > 10 && y === 0) {
                 console.log('PERDUUUUU');
+                endGame();
             }
         }
         if (fullLines) {
@@ -19,7 +18,7 @@ const checkLines = (board) => {
     return board
 }
 
-const freeze = (board) => {
+const freeze = (board, endGame) => {
     for (let y = 0; y < 20; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > 0 && board[y][x] < 10) {
@@ -27,20 +26,20 @@ const freeze = (board) => {
             }
         }
     }
-    board = checkLines(board);
+    board = checkLines(board, endGame);
     board[0] = [0,0,0,0,1,1,0,0,0,0];
     board[1] = [0,0,0,0,1,1,0,0,0,0]
     return board
 }
 
-export const moveShapesDown = (board) => {
+export const moveShapesDown = (board, endGame) => {
     let canMove = true;
     for (let y = 0; y < 20; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > 0 && board[y][x] < 10) {
                 if (y === 19 || board[y + 1][x] > 10) {
                     canMove = false;
-                    board = freeze(board)
+                    board = freeze(board, endGame)
                 }
             }
         }
