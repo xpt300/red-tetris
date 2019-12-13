@@ -1,3 +1,5 @@
+import newShapes from '../functions/newShapes'
+
 const checkLines = (board, endGame) => {
     for (let y = 0; y < 20; y++) {
         let fullLines = true
@@ -5,8 +7,8 @@ const checkLines = (board, endGame) => {
             if (board[y][x] < 10) {
                 fullLines = false
             } else if (board[y][x] > 10 && y === 0) {
-                console.log('PERDUUUUU');
                 endGame();
+                console.log('PERDU');
             }
         }
         if (fullLines) {
@@ -27,8 +29,9 @@ const freeze = (board, endGame) => {
         }
     }
     board = checkLines(board, endGame);
-    board[0] = [0,0,0,0,1,1,0,0,0,0];
-    board[1] = [0,0,0,0,1,1,0,0,0,0]
+    const shapes = newShapes(Math.floor(Math.random() * 7))
+    board[0] = shapes[0]
+    board[1] = shapes[1]
     return board
 }
 

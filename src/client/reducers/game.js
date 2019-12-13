@@ -1,11 +1,11 @@
 import { WIN, START, END } from '../actions/game'
 
-
 const initialState = {
   start: false,
   win: false,
   end: false
 }
+
 
 const reducer = (state = initialState , action) => {
   switch(action.type){
@@ -17,7 +17,7 @@ const reducer = (state = initialState , action) => {
     case START:
       return {
         ...state,
-        start: true
+        start: true,
       }
     case END:
         return {

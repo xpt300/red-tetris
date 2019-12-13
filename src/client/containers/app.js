@@ -1,10 +1,14 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Tetris } from '../components/tetris'
+import Tetris from '../components/tetris'
 import Aside from '../components/aside'
 import Popup from '../components/popup'
 import StartText from '../components/startText'
+import addShapes from '../functions/addShapes'
+import createBoard from '../functions/createBoard'
+import newShapes from '../functions/newShapes'
+
 
 const container = {
   display: "flex",
@@ -14,21 +18,28 @@ const container = {
   height:"100vh"
 }
 
-const App = ({message, start, win, end}) => {
+const App = () => {
+  const [board, setBoard] = useState(null)
   const dispatch = useDispatch()
   const game = useSelector(state => state.game)
+  const random = Math.floor(Math.random() * 7)
+
+  function endGame () {
+    dispatch({ type:'END' })
+  }
 
   useEffect(() => {
     function handlekeyupEvent (event) {
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13 && !game.start) {
         dispatch({ type: 'START'})
+        setBoard(addShapes(createBoard(), newShapes(random)))
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
     return () => {
       document.addEventListener('keyup', handlekeyupEvent)
     }
-  }, [game.start])
+  }, [game.start, game.shapes])
 
   return (
     <Fragment>
@@ -39,7 +50,9 @@ const App = ({message, start, win, end}) => {
         : null} */}
       <div style={container}>
         <Aside />
-        { game.start ? <Tetris /> : <StartText text="Press <Enter> for START" />}
+        { game.start && board ? 
+            <Tetris board={board} endGame={endGame} end={game.end}/> 
+            : <StartText text="Press <Enter> for START" />}
         <Aside />
       </div>
     </Fragment>

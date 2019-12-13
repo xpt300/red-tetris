@@ -4,8 +4,7 @@ export const END = 'END'
 
 export const game = (game) => {
   return {
-    type: GAME,
-    login
+    type: GAME
   }
 }
 
