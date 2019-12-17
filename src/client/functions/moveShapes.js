@@ -1,7 +1,7 @@
 import newShapes from '../functions/newShapes'
 
 const checkLines = (board, endGame) => {
-    for (let y = 0; y < 20; y++) {
+    for (let y = 0; y < 23; y++) {
         let fullLines = true
         for (let x = 0; x < 10; x++) {
             if (board[y][x] < 10) {
@@ -21,7 +21,7 @@ const checkLines = (board, endGame) => {
 }
 
 const freeze = (board, endGame) => {
-    for (let y = 0; y < 20; y++) {
+    for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > 0 && board[y][x] < 10) {
                 board[y][x] = board[y][x] + 10
@@ -32,15 +32,17 @@ const freeze = (board, endGame) => {
     const shapes = newShapes(Math.floor(Math.random() * 7))
     board[0] = shapes[0]
     board[1] = shapes[1]
+    board[2] = shapes[2]
+    board[3] = shapes[3]
     return board
 }
 
 export const moveShapesDown = (board, endGame) => {
     let canMove = true;
-    for (let y = 0; y < 20; y++) {
+    for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > 0 && board[y][x] < 10) {
-                if (y === 19 || board[y + 1][x] > 10) {
+                if (y === 22 || board[y + 1][x] > 10) {
                     canMove = false;
                     board = freeze(board, endGame)
                 }
@@ -48,7 +50,7 @@ export const moveShapesDown = (board, endGame) => {
         }
     }
     if (canMove) {
-        for (let y=19; y >= 0; y--) {
+        for (let y=22; y >= 0; y--) {
             for (let x=0; x < 10; x++) {
                 if (board[y][x] < 10 && board[y][x] > 0) {
                     board[y + 1][x] = board[y][x];
@@ -62,7 +64,7 @@ export const moveShapesDown = (board, endGame) => {
 
 export const moveShapesLeft = (board) => {
     let canMove = true;
-    for (let y = 0; y < 20; y++) {
+    for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > 0 && board[y][x] < 10) {
                 if (x === 0 || board[y][x - 1] > 10) {
@@ -72,7 +74,7 @@ export const moveShapesLeft = (board) => {
         }
     }
     if (canMove) {
-        for (let y=19; y >= 0; y--) {
+        for (let y=22; y >= 0; y--) {
             for (let x=0; x < 10; x++) {
                 if (board[y][x] < 10 && board[y][x] > 0) {
                     board[y][x - 1] = board[y][x];
@@ -86,7 +88,7 @@ export const moveShapesLeft = (board) => {
 
 export const moveShapesRight = (board) => {
     let canMove = true;
-    for (let y = 0; y < 20; y++) {
+    for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > 0 && board[y][x] < 10) {
                 if (x === 9 || board[y][x + 1] > 10) {
@@ -96,7 +98,7 @@ export const moveShapesRight = (board) => {
         }
     }
     if (canMove) {
-        for (let y=19; y >= 0; y--) {
+        for (let y=22; y >= 0; y--) {
             for (let x=10; x >= 0; x--) {
                 if (board[y][x] < 10 && board[y][x] > 0) {
                     board[y][x + 1] = board[y][x];

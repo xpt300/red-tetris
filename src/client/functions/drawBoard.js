@@ -18,14 +18,16 @@ const redBox = {
 
 const drawBoard = (board) => {
     let htmlBoard = [];
-    board.map(line => {
-      line.map(block => {
-        if (block === 0) {
-          htmlBoard.push(<div style={hiddenBox} key={htmlBoard.length}/>)
-        } else {
-          htmlBoard.push(<div style={redBox} key={htmlBoard.length}/>)
-        }
-      })
+    board.map((line, index) => {
+      if (index > 2) {
+        line.map(block => {
+          if (block === 0) {
+            htmlBoard.push(<div style={hiddenBox} key={htmlBoard.length}/>)
+          } else {
+            htmlBoard.push(<div style={redBox} key={htmlBoard.length}/>)
+          }
+        })
+      }
     })
     return htmlBoard
 }

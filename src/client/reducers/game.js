@@ -1,9 +1,12 @@
-import { WIN, START, END } from '../actions/game'
+import { WIN, START, END, SHAPES } from '../actions/game'
+import { shapesRandom } from '../util/shapes'
 
 const initialState = {
   start: false,
   win: false,
-  end: false
+  end: false,
+  shapes: [],
+  numberShapes: 0
 }
 
 
@@ -24,6 +27,14 @@ const reducer = (state = initialState , action) => {
           ...state,
           end: true
         }
+    case SHAPES: {
+      const number = Math.floor(Math.random() * 7)
+      return {
+        ...state,
+        numberShapes: number,
+        shapes: JSON.parse(JSON.stringify(shapesRandom[number]))
+      }
+    }
     default: 
       return state
   }
