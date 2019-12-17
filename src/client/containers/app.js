@@ -24,7 +24,7 @@ const App = () => {
   const game = useSelector(state => state.game)
   const random = Math.floor(Math.random() * 7)
 
-  function endGame () {
+  const endGame = () =>  {
     dispatch({ type:'END' })
   }
 
