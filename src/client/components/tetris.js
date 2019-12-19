@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useStore } from 'react-redux'
 
 import drawBoard from '../functions/drawBoard'
 import useInterval from '../functions/useInterval'
-import checkFirstLine from '../functions/checkFirstLine'
-import { moveShapesDown, moveShapesLeft, moveShapesRight} from '../functions/moveShapes'
+import { moveShapesDown, moveShapesLeft, moveShapesRight } from '../functions/moveShapes'
+import { shapesRotation } from '../functions/shapesRotation'
 
 
 const containerTetris = {
@@ -19,9 +19,9 @@ const containerTetris = {
 }
 
 const Tetris = ({ board, endGame, end }) => {
-  // const end = useSelector(state => state.game.end)
+  const store = useStore()
   const [html, setHtml] = useState(drawBoard(board))
-  const [delay, setDelay] = useState(1000)
+  const [delay, setDelay] = useState(5000)
 
   
   let htmlBoard = drawBoard(board)
@@ -43,6 +43,8 @@ const Tetris = ({ board, endGame, end }) => {
         } else if (event.keyCode === 40) {
           board = moveShapesDown(board, endGame)
           setHtml(drawBoard(board))
+        } else if (event.keyCode === 32) {
+          board = shapesRotation(board, store.getState())
         }
       }
     }

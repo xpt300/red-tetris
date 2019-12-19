@@ -43,11 +43,6 @@ const App = () => {
 
   return (
     <Fragment>
-      {/* {popup ? 
-        <Popup 
-        handleLogin={(value) => handleLogin(value)} 
-        closePopup={closePopup}/> 
-        : null} */}
       <div style={container}>
         <Aside />
         { game.start && board ? 
