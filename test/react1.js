@@ -7,7 +7,7 @@ import {Tetris, Board} from '../src/client/components/test'
 chai.should()
 chai.use(equalJSX)
 
-describe('Fake react test', function(){
+describe('Rotation shapes', function(){
   it('works', function(){
     const renderer = createRenderer()
     renderer.render(React.createElement(Tetris))

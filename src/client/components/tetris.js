@@ -4,7 +4,7 @@ import { useStore } from 'react-redux'
 import drawBoard from '../functions/drawBoard'
 import useInterval from '../functions/useInterval'
 import { moveShapesDown, moveShapesLeft, moveShapesRight } from '../functions/moveShapes'
-import { shapesRotation } from '../functions/shapesRotation'
+import { rotationShape } from '../functions/rotationShapes'
 
 
 const containerTetris = {
@@ -21,15 +21,15 @@ const containerTetris = {
 const Tetris = ({ board, endGame, end }) => {
   const store = useStore()
   const [html, setHtml] = useState(drawBoard(board))
-  const [delay, setDelay] = useState(5000)
+  const [delay, setDelay] = useState(1000)
 
   
   let htmlBoard = drawBoard(board)
   
-  useInterval(() => {
-    board = moveShapesDown(board,endGame)
-    setHtml(drawBoard(board))
-  }, end ? null : delay);
+  // useInterval(() => {
+  //   board = moveShapesDown(board,endGame)
+  //   setHtml(drawBoard(board))
+  // }, end ? null : delay);
 
   useEffect(() => {
     function handlekeyupEvent (event) {
@@ -44,7 +44,8 @@ const Tetris = ({ board, endGame, end }) => {
           board = moveShapesDown(board, endGame)
           setHtml(drawBoard(board))
         } else if (event.keyCode === 32) {
-          board = shapesRotation(board, store.getState())
+          board = rotationShape(board)
+          setHtml(drawBoard(board))
         }
       }
     }
