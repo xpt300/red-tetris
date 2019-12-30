@@ -33,17 +33,6 @@ const searchCenter = (board) => {
     return null
 }
 
-const alreadyTurnOn = (changePoint, tab) => {
-    tab.forEach(point => {
-        // console.log(point[0], changePoint[0], point[1], changePoint[1]);
-        // console.log(point[0] == changePoint[0], point[1] == changePoint[1]);
-        if (point[0] == changePoint[0] && point[1] == changePoint[1]) {
-            return false
-        } 
-    })
-    return true
-}
-
 const rotationPoint = (board, tab, pointCenter) => {
     let diffCoor = [] 
     let vecteur = []
@@ -58,19 +47,18 @@ const rotationPoint = (board, tab, pointCenter) => {
             0 * (diffCoor[0]) + 1 * (diffCoor[1]) ,
             (-1) * (diffCoor[0]) + 0 * (diffCoor[1]) 
         ]
-        if (pointCenter[0] + vecteur[0] < 0 || pointCenter[1] + vecteur[1] < 0) {
+        if (pointCenter[0] + vecteur[0] < 0 || pointCenter[1] + vecteur[1] < 0 
+            || pointCenter[0] + vecteur[0] >= 23 || pointCenter[1] + vecteur[1] >= 10) {
             negatif = true
         }
         changePoint.push([pointCenter[0] + vecteur[0], pointCenter[1] + vecteur[1]])
     })
     if (!negatif) {
+        tab.map(point => {
+            board[point[0]][point[1]] = 0
+        })
         changePoint.map((arrayPoint, index) => {
             board[arrayPoint[0]][arrayPoint[1]] = 1
-            // if (alreadyTurnOn(arrayPoint, tab)) {
-            //     console.log('XXXX');
-            //     board[tab[index][0]][tab[index][1]] = 0
-            // }
-            console.log(alreadyTurnOn(arrayPoint, tab));
         })
     }
     return board
@@ -80,7 +68,6 @@ export const rotationShape = (board) => {
     const pointCenter = searchCenter(board)
     if (pointCenter) {
         let tab = pointChange(board, pointCenter)
-        console.log('tab', tab);
         board = rotationPoint(board, tab, pointCenter)
     }
     return board

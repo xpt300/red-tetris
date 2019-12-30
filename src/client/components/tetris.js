@@ -26,10 +26,10 @@ const Tetris = ({ board, endGame, end }) => {
   
   let htmlBoard = drawBoard(board)
   
-  // useInterval(() => {
-  //   board = moveShapesDown(board,endGame)
-  //   setHtml(drawBoard(board))
-  // }, end ? null : delay);
+  useInterval(() => {
+    board = moveShapesDown(board,endGame)
+    setHtml(drawBoard(board))
+  }, end ? null : delay);
 
   useEffect(() => {
     function handlekeyupEvent (event) {
