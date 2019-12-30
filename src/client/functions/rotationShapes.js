@@ -33,8 +33,15 @@ const searchCenter = (board) => {
     return null
 }
 
-const alreadyTurnOn = (changePoint, ) => {
-
+const alreadyTurnOn = (changePoint, tab) => {
+    tab.forEach(point => {
+        // console.log(point[0], changePoint[0], point[1], changePoint[1]);
+        // console.log(point[0] == changePoint[0], point[1] == changePoint[1]);
+        if (point[0] == changePoint[0] && point[1] == changePoint[1]) {
+            return false
+        } 
+    })
+    return true
 }
 
 const rotationPoint = (board, tab, pointCenter) => {
@@ -59,10 +66,11 @@ const rotationPoint = (board, tab, pointCenter) => {
     if (!negatif) {
         changePoint.map((arrayPoint, index) => {
             board[arrayPoint[0]][arrayPoint[1]] = 1
-            il faut regarder si on ne sors pas du jeu et si il y n'y pas de doublons quand on eneleve les points avec zero
-            // if (alreadyTurnOn(arrayPoint, changePoint)) {
-            //     console.log(true);
+            // if (alreadyTurnOn(arrayPoint, tab)) {
+            //     console.log('XXXX');
+            //     board[tab[index][0]][tab[index][1]] = 0
             // }
+            console.log(alreadyTurnOn(arrayPoint, tab));
         })
     }
     return board
