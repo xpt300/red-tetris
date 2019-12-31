@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import { useStore } from 'react-redux'
+import React, {useState, useEffect, Fragment} from 'react'
 
 import drawBoard from '../functions/drawBoard'
 import useInterval from '../functions/useInterval'
 import { moveShapesDown, moveShapesLeft, moveShapesRight } from '../functions/moveShapes'
 import { rotationShape } from '../functions/rotationShapes'
+import EndText from './EndText'
 
 
 const containerTetris = {
@@ -18,18 +18,17 @@ const containerTetris = {
   backgroundColor: 'grey',
 }
 
-const Tetris = ({ board, endGame, end }) => {
-  const store = useStore()
+const Tetris = ({ board, endGame, end, shapes, newShapes }) => {
   const [html, setHtml] = useState(drawBoard(board))
   const [delay, setDelay] = useState(1000)
 
   
   let htmlBoard = drawBoard(board)
   
-  useInterval(() => {
-    board = moveShapesDown(board,endGame)
-    setHtml(drawBoard(board))
-  }, end ? null : delay);
+  // useInterval(() => {
+  //   board = moveShapesDown(board,endGame, shapes, newShapes)
+  //   setHtml(drawBoard(board))
+  // }, end ? null : delay);
 
   useEffect(() => {
     function handlekeyupEvent (event) {
@@ -41,7 +40,7 @@ const Tetris = ({ board, endGame, end }) => {
           board = moveShapesRight(board)
           setHtml(drawBoard(board))
         } else if (event.keyCode === 40) {
-          board = moveShapesDown(board, endGame)
+          board = moveShapesDown(board, endGame, shapes, newShapes)
           setHtml(drawBoard(board))
         } else if (event.keyCode === 32) {
           board = rotationShape(board)
@@ -53,12 +52,15 @@ const Tetris = ({ board, endGame, end }) => {
     return () => {
       document.removeEventListener('keydown', handlekeyupEvent)
     }
-  }, [])
+  }, [end])
 
   return (
-    <div style={containerTetris}>
-      { htmlBoard }
-    </div>
+    <Fragment>
+      <div style={containerTetris}>
+        { htmlBoard }
+      </div>
+      {end ? <EndText text="Perdu" /> : null}
+    </Fragment>
   )
 }
 

@@ -1,14 +1,13 @@
 import { WIN, START, END, SHAPES } from '../actions/game'
-import { shapesRandom } from '../util/shapes'
+import shapes from '../functions/newShapes'
 
 const initialState = {
   start: false,
   win: false,
   end: false,
-  shapes: [],
-  numberShapes: 0
+  newShapes:[],
+  shapes: []
 }
-
 
 const reducer = (state = initialState , action) => {
   switch(action.type){
@@ -21,6 +20,8 @@ const reducer = (state = initialState , action) => {
       return {
         ...state,
         start: true,
+        shapes: shapes(Math.floor(Math.random() * 7)),
+        newShapes: shapes(Math.floor(Math.random() * 7))
       }
     case END:
         return {
@@ -28,11 +29,10 @@ const reducer = (state = initialState , action) => {
           end: true
         }
     case SHAPES: {
-      const number = Math.floor(Math.random() * 7)
       return {
         ...state,
-        numberShapes: number,
-        shapes: JSON.parse(JSON.stringify(shapesRandom[number]))
+        newShapes: state.shapes,
+        shapes: shapes(Math.floor(Math.random() * 7))
       }
     }
     default: 

@@ -11,7 +11,7 @@ const aside = {
 const Aside = () => {
     return (
         <div style={aside}>
-            
+
         </div>
     )
 }

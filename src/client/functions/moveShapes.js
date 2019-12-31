@@ -1,14 +1,11 @@
-import newShapes from '../functions/newShapes'
-
 const checkLines = (board, endGame) => {
     for (let y = 0; y < 23; y++) {
         let fullLines = true
         for (let x = 0; x < 10; x++) {
             if (board[y][x] < 10) {
                 fullLines = false
-            } else if (board[y][x] > 10 && y === 0) {
+            } else if (board[y][x] > 10 && y === 3) {
                 endGame();
-                console.log('PERDU');
             }
         }
         if (fullLines) {
@@ -20,7 +17,7 @@ const checkLines = (board, endGame) => {
     return board
 }
 
-const freeze = (board, endGame) => {
+const freeze = (board, endGame, shapes, newShapes) => {
     for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > -10 && board[y][x] < 0 || board[y][x] > 0 &&  board[y][x] < 10) {
@@ -33,22 +30,23 @@ const freeze = (board, endGame) => {
         }
     }
     board = checkLines(board, endGame);
-    const shapes = newShapes(Math.floor(Math.random() * 7))
+    console.log(shapes);
     board[0] = shapes[0]
     board[1] = shapes[1]
     board[2] = shapes[2]
     board[3] = shapes[3]
+    newShapes()
     return board
 }
 
-export const moveShapesDown = (board, endGame) => {
+export const moveShapesDown = (board, endGame, shapes, newShapes) => {
     let canMove = true;
     for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > -10 && board[y][x] < 0 || board[y][x] > 0 &&  board[y][x] < 10) {
                 if (y === 22 || board[y + 1][x] > 10) {
                     canMove = false;
-                    board = freeze(board, endGame)
+                    board = freeze(board, endGame, shapes, newShapes)
                 }
             }
         }

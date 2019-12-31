@@ -1,17 +1,18 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, useStore } from 'react-redux'
+import shapes from '../functions/newShapes'
 
 import Tetris from '../components/tetris'
 import Aside from '../components/aside'
-import Popup from '../components/popup'
-import StartText from '../components/startText'
+import AsideLeft from '../components/asideLeft'
+import ContainerText from '../components/ContainerText'
 import addShapes from '../functions/addShapes'
 import createBoard from '../functions/createBoard'
-import newShapes from '../functions/newShapes'
 
 
 const container = {
   display: "flex",
+  position: 'relative',
   justifyContent: "space-around",
   alignItems: "center",
   flexWrap: "nowrap",
@@ -22,32 +23,42 @@ const App = () => {
   const [board, setBoard] = useState(null)
   const dispatch = useDispatch()
   const game = useSelector(state => state.game)
-  const random = Math.floor(Math.random() * 7)
+  const store = useStore()
 
   const endGame = () =>  {
     dispatch({ type:'END' })
   }
 
+  const newShapes = () => {
+    dispatch({ type: 'SHAPES'})
+  }
+
   useEffect(() => {
     function handlekeyupEvent (event) {
-      if (event.keyCode === 13 && !game.start) {
+      let state = store.getState()
+      if (event.keyCode === 13 && !state.game.start) {
         dispatch({ type: 'START'})
-        setBoard(addShapes(createBoard(), newShapes(random)))
+        setBoard(addShapes(createBoard(), shapes(Math.floor(Math.random() * 7))))
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
     return () => {
       document.addEventListener('keyup', handlekeyupEvent)
     }
-  }, [game.start, game.shapes])
+  }, [game.shapes])
 
-  return (
+  return console.log(store.getState().game) || (
     <Fragment>
       <div style={container}>
-        <Aside />
+        <AsideLeft shapes={store.getState().game.newShapes}/>
         { game.start && board ? 
-            <Tetris board={board} endGame={endGame} end={game.end}/> 
-            : <StartText text="Press <Enter> for START" />}
+            <Tetris 
+              board={board} 
+              endGame={endGame}
+              newShapes={newShapes} 
+              end={store.getState().game.end} 
+              shapes={store.getState().game.newShapes}/> 
+            : <ContainerText text="Press <Enter> for START" />}
         <Aside />
       </div>
     </Fragment>

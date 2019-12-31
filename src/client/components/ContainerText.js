@@ -15,7 +15,7 @@ const styleText = {
     color: 'white',
 }
 
-const StartText = ({text}) => {
+const ContainerText = ({text}) => {
     return (
         <div style={container}>
             <span style={styleText}>{text}</span>
@@ -23,4 +23,4 @@ const StartText = ({text}) => {
     )
 }
 
-export default StartText
+export default ContainerText
