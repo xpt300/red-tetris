@@ -34,11 +34,12 @@ const App = () => {
   }
 
   useEffect(() => {
+    console.log(store.getState().game.shapes);
     function handlekeyupEvent (event) {
       let state = store.getState()
       if (event.keyCode === 13 && !state.game.start) {
         dispatch({ type: 'START'})
-        setBoard(addShapes(createBoard(), shapes(Math.floor(Math.random() * 7))))
+        setBoard(addShapes(createBoard(), store.getState().game.shapes))
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
@@ -47,7 +48,7 @@ const App = () => {
     }
   }, [game.shapes])
 
-  return console.log(store.getState().game) || (
+  return (
     <Fragment>
       <div style={container}>
         <AsideLeft shapes={store.getState().game.newShapes}/>
@@ -57,7 +58,7 @@ const App = () => {
               endGame={endGame}
               newShapes={newShapes} 
               end={store.getState().game.end} 
-              shapes={store.getState().game.newShapes}/> 
+              shapes={store.getState().game.shapes}/> 
             : <ContainerText text="Press <Enter> for START" />}
         <Aside />
       </div>

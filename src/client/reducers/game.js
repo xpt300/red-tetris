@@ -31,8 +31,8 @@ const reducer = (state = initialState , action) => {
     case SHAPES: {
       return {
         ...state,
-        newShapes: state.shapes,
-        shapes: shapes(Math.floor(Math.random() * 7))
+        shapes: state.newShapes,
+        newShapes: shapes(Math.floor(Math.random() * 7))
       }
     }
     default: 

@@ -3,7 +3,6 @@ import React from 'react'
 import drawShapes from '../functions/drawShapes'
 
 const aside = {
-    position: 'relative',
     display: 'flex',
     alignItems: 'stretch',
     alignContent: 'center',
@@ -24,7 +23,7 @@ const containerShapes = {
     alignContent: 'start',
     width: '40vh',
     height: '80vh',
-  }
+}
 
 const AsideLeft = (shapes) => {
     let htmlShapes = drawShapes(shapes.shapes)

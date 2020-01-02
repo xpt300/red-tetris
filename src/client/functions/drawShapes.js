@@ -4,8 +4,6 @@ const hiddenBox = {
     width: '10%',
     height: '5%',
     flexShrink: '0',
-    // backgroundColor: 'black',
-    // outline: '1px solid black'
 }
 
 const redBox = {
