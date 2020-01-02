@@ -13,7 +13,6 @@ export const freeze = (board, endGame, shapes, newShapes) => {
         }
     }
     board = checkLines(board, endGame);
-    console.log('moveShapes', shapes);
     board[0] = shapes[0]
     board[1] = shapes[1]
     board[2] = shapes[2]

@@ -1,18 +1,13 @@
 import chai from "chai"
 import React from 'react'
-import equalJSX from 'chai-equal-jsx'
-import {createRenderer} from 'react-addons-test-utils'
-import {Tetris, Board} from '../src/client/components/test'
+import { shallow } from 'enzyme';
+import { App } from '../src/client/containers/app'
 
-chai.should()
-chai.use(equalJSX)
 
-describe('Rotation shapes', function(){
-  it('works', function(){
-    const renderer = createRenderer()
-    renderer.render(React.createElement(Tetris))
-    const output = renderer.getRenderOutput()
-    output.should.equalJSX(<Board/>)
+describe('<Tetris/>', () => {
+  it('simulate button events', () => {
+    const wrapper = shallow(Tetris)
+    wrapper.simulate('keypress', {key: 'Enter'})
   })
 
 })

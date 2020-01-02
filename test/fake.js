@@ -1,11 +1,17 @@
 import chai from "chai"
+import newShapes from '../src/client/functions/newShapes'
+import moveShapes from '../src/client/functions/moveShapes'
+import { shapesRandom } from '../src/client/util/shapes'
 
-chai.should()
+const should = chai.should()
 
-describe('Check Rotation', () => {
-  it('1+1 == 2', () => {
-    const res = 1 + 1
-    res.should.equal(2)
+describe('Shapes function', () => {
+  it('New Shapes', () => {
+    const shapes = newShapes(0)
+    shapes.should.to.be.an('array')
+    shapes.should.to.deep.equal(shapesRandom[0])
   });
-
+  it('Move Shapes', () => {
+      
+  })
 });

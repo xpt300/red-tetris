@@ -29,6 +29,13 @@ const reducer = (state = initialState , action) => {
           end: true
         }
     case SHAPES: {
+
+      state = {
+        ...state
+      }
+      console.log('1' ,state);
+      state.shapes = state.newShapes
+      console.log('2',state);
       return {
         ...state,
         shapes: state.newShapes,

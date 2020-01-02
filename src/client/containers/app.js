@@ -34,17 +34,18 @@ const App = () => {
   }
 
   useEffect(() => {
-    console.log(store.getState().game.shapes);
     function handlekeyupEvent (event) {
       let state = store.getState()
       if (event.keyCode === 13 && !state.game.start) {
         dispatch({ type: 'START'})
+        console.log('USEEFFECT', store.getState());
         setBoard(addShapes(createBoard(), store.getState().game.shapes))
+        console.log('USEEFFECT', store.getState());
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
     return () => {
-      document.addEventListener('keyup', handlekeyupEvent)
+      document.removeEventListener('keyup', handlekeyupEvent)
     }
   }, [game.shapes])
 
@@ -52,11 +53,15 @@ const App = () => {
     <Fragment>
       <div style={container}>
         <AsideLeft shapes={store.getState().game.newShapes}/>
+        <button onClick={update}>
+          hihih
+          </button> 
         { game.start && board ? 
             <Tetris 
               board={board} 
               endGame={endGame}
               newShapes={newShapes} 
+              store={store.getState()}
               end={store.getState().game.end} 
               shapes={store.getState().game.shapes}/> 
             : <ContainerText text="Press <Enter> for START" />}

@@ -18,7 +18,7 @@ const containerTetris = {
   backgroundColor: 'grey',
 }
 
-const Tetris = ({ board, endGame, end, shapes, newShapes }) => {
+const Tetris = ({ board, endGame, end, shapes, newShapes, store }) => {
   const [html, setHtml] = useState(drawBoard(board))
   const [delay, setDelay] = useState(1000)
 
@@ -32,6 +32,7 @@ const Tetris = ({ board, endGame, end, shapes, newShapes }) => {
 
   useEffect(() => {
     function handlekeyupEvent (event) {
+      console.log(store);
       if (!end) {
         if (event.keyCode === 37) {
           board = moveShapesLeft(board)
