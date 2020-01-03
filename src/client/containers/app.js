@@ -52,7 +52,7 @@ const App = () => {
       <div style={container}>
         <AsideLeft shapes={store.getState().game.newShapes}/>
         { game.start && board ? 
-            <Tetris 
+            <Tetris
               board={board} 
               endGame={endGame}
               newShapes={newShapes} 
