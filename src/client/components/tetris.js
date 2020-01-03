@@ -14,46 +14,46 @@ const containerTetris = {
   alignContent: 'center',
   width: '40vh',
   height: '80vh',
-  border: '2px solid black',
   backgroundColor: 'grey',
 }
 
-const Tetris = ({ board, endGame, end, shapes, newShapes, store }) => {
+const Tetris = ({ board, endGame, end, shapes, newShapes }) => {
   const [html, setHtml] = useState(drawBoard(board))
   const [delay, setDelay] = useState(1000)
 
   
   let htmlBoard = drawBoard(board)
   
-  // useInterval(() => {
-  //   board = moveShapesDown(board,endGame, shapes, newShapes)
-  //   setHtml(drawBoard(board))
-  // }, end ? null : delay);
+  useInterval(() => {
+    board = moveShapesDown(board,endGame, newShapes)
+    setHtml(drawBoard(board))
+  }, end ? null : delay);
+
 
   useEffect(() => {
-    function handlekeyupEvent (event) {
-      console.log(store);
+    board[0] = shapes[0]
+    board[1] = shapes[1]
+    board[2] = shapes[2]
+    board[3] = shapes[3]
+    const handlekeyupEvent = (event) => {
       if (!end) {
         if (event.keyCode === 37) {
           board = moveShapesLeft(board)
-          setHtml(drawBoard(board))
         } else if (event.keyCode === 39) {
           board = moveShapesRight(board)
-          setHtml(drawBoard(board))
         } else if (event.keyCode === 40) {
-          board = moveShapesDown(board, endGame, shapes, newShapes)
-          setHtml(drawBoard(board))
+          board = moveShapesDown(board, endGame, newShapes)
         } else if (event.keyCode === 32) {
           board = rotationShape(board)
-          setHtml(drawBoard(board))
         }
+        setHtml(drawBoard(board))
       }
     }
     document.addEventListener('keydown', handlekeyupEvent)
     return () => {
       document.removeEventListener('keydown', handlekeyupEvent)
     }
-  }, [end])
+  }, [end, shapes])
 
   return (
     <Fragment>

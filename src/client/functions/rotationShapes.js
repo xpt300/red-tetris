@@ -51,6 +51,9 @@ const rotationPoint = (board, tab, pointCenter) => {
             || pointCenter[0] + vecteur[0] >= 23 || pointCenter[1] + vecteur[1] >= 10) {
             negatif = true
         }
+        if (board[pointCenter[0] + vecteur[0]][pointCenter[1] + vecteur[1]] > 10) {
+            negatif = true
+        }
         changePoint.push([pointCenter[0] + vecteur[0], pointCenter[1] + vecteur[1]])
     })
     if (!negatif) {

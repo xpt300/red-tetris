@@ -1,4 +1,4 @@
-export const checkLines = (board, endGame) => {
+export const checkLines = (board, endGame, newShapes) => {
     for (let y = 0; y < 23; y++) {
         let fullLines = true
         for (let x = 0; x < 10; x++) {
@@ -6,6 +6,7 @@ export const checkLines = (board, endGame) => {
                 fullLines = false
             } else if (board[y][x] > 10 && y === 3) {
                 endGame();
+                return board
             }
         }
         if (fullLines) {
@@ -14,5 +15,6 @@ export const checkLines = (board, endGame) => {
             y--;
         }
     }
+    newShapes()
     return board
 }

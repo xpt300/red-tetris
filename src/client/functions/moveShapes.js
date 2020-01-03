@@ -1,13 +1,13 @@
 import { freeze } from './freeze'
 
-export const moveShapesDown = (board, endGame, shapes, newShapes) => {
+export const moveShapesDown = (board, endGame, newShapes) => {
     let canMove = true;
     for (let y = 0; y < 23; y++) {
         for (let x = 0; x < 10; x++) {
             if (board[y][x] > -10 && board[y][x] < 0 || board[y][x] > 0 &&  board[y][x] < 10) {
                 if (y === 22 || board[y + 1][x] > 10) {
                     canMove = false;
-                    board = freeze(board, endGame, shapes, newShapes)
+                    board = freeze(board, endGame, newShapes)
                 }
             }
         }
