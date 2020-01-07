@@ -16,13 +16,13 @@ const reducer = (state = initialState , action) => {
         ...state,
         win: true
       }
-    case START:
-      return {
-        ...state,
-        start: true,
-        shapes: shapes(Math.floor(Math.random() * 7)),
-        newShapes: shapes(Math.floor(Math.random() * 7))
-      }
+    // case START:
+    //   return {
+    //     ...state,
+    //     start: true,
+    //     shapes: shapes(Math.floor(Math.random() * 7)),
+    //     newShapes: shapes(Math.floor(Math.random() * 7))
+    //   }
     case END:
         return {
           ...state,

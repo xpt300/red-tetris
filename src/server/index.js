@@ -1,5 +1,7 @@
 import fs  from 'fs'
 import debug from 'debug'
+import shapes from '../client/functions/newShapes'
+
 
 const logerror = debug('tetris:error')
   , loginfo = debug('tetris:info')
@@ -30,16 +32,21 @@ const initApp = (app, params, cb) => {
 const initEngine = io => {
   io.on('connection', function(socket){
     loginfo("Socket connected: " + socket.id)
+    const query = socket.handshake['query']
+    const arrayQuery = query.room.split('[')
+    const room = arrayQuery[0]
+    const name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
+    console.log('user join ' + room, 'avec le nom : ' + name)
+    socket.join(room)
     socket.on('action', (action) => {
-      if(action.type === 'server/ping'){
-        socket.emit('action', {type: 'pong'})
+      if(action.type === 'start'){
+        socket.emit('shapes', {
+          shapes: shapes(Math.floor(Math.random() * 7)),
+          newShapes: shapes(Math.floor(Math.random() * 7))})
       }
-      if(action.type === 'username'){
-        socket.username = action.value
-        socket.emit('login', {
-          username: socket.username,
-        });
-      }
+    })
+    socket.on('event', (event) => {
+      console.log(event);
     })
   })
 }
@@ -49,17 +56,17 @@ export function create(params){
     const app = require('http').createServer()
     initApp(app, params, () =>{
       const io = require('socket.io')(app)
-      const stop = (cb) => {
-        io.close()
-        app.close( () => {
-          app.unref()
-        })
-        loginfo(`Engine stopped.`)
-        cb()
-      }
+      // const stop = (cb) => {
+      //   io.close()
+      //   app.close( () => {
+      //     app.unref()
+      //   })
+      //   loginfo(`Engine stopped.`)
+      //   cb()
+      // }
 
       initEngine(io)
-      resolve({stop})
+      // resolve({stop})
     })
   })
   return promise

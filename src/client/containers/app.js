@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
-import shapes from '../functions/newShapes'
 
+import socketIoClient from 'socket.io-client'
 import Tetris from '../components/tetris'
 import Aside from '../components/aside'
 import AsideLeft from '../components/asideLeft'
@@ -22,6 +22,9 @@ const container = {
 const App = () => {
   const [board, setBoard] = useState(null)
   const dispatch = useDispatch()
+  const socket = socketIoClient('http://0.0.0.0:3004', {
+    query: 'room=' + window.location.href.split('/')[3]
+  })
   const game = useSelector(state => state.game)
   const store = useStore()
 
@@ -32,6 +35,10 @@ const App = () => {
   const newShapes = () => {
     dispatch({ type: 'SHAPES'})
   }
+
+  useEffect(() => {
+    socket.emit()
+  }, [])
 
   useEffect(() => {
     function handlekeyupEvent (event) {
