@@ -10,19 +10,20 @@ const initialState = {
 }
 
 const reducer = (state = initialState , action) => {
+  console.log('reducer', action);
   switch(action.type){
     case WIN:
       return { 
         ...state,
         win: true
       }
-    // case START:
-    //   return {
-    //     ...state,
-    //     start: true,
-    //     shapes: shapes(Math.floor(Math.random() * 7)),
-    //     newShapes: shapes(Math.floor(Math.random() * 7))
-    //   }
+    case START:
+      return {
+        ...state,
+        start: true,
+        shapes: action.object.shapes,
+        newShapes: action.object.newShapes
+      }
     case END:
         return {
           ...state,

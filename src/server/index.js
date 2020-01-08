@@ -38,12 +38,18 @@ const initEngine = io => {
     const name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
     console.log('user join ' + room, 'avec le nom : ' + name)
     socket.join(room)
-    socket.on('action', (action) => {
+    socket.on('action', (action, callback) => {
       if(action.type === 'start'){
-        socket.emit('shapes', {
-          shapes: shapes(Math.floor(Math.random() * 7)),
-          newShapes: shapes(Math.floor(Math.random() * 7))})
+          callback({
+            shapes: shapes(Math.floor(Math.random() * 7)),
+            newShapes: shapes(Math.floor(Math.random() * 7))
+          })
       }
+        // })
+      //   socket.emit('start', {
+      //     shapes: shapes(Math.floor(Math.random() * 7)),
+      //     newShapes: shapes(Math.floor(Math.random() * 7))})
+      // }
     })
     socket.on('event', (event) => {
       console.log(event);
