@@ -1,14 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 
-import socketIoClient from 'socket.io-client'
 import Tetris from '../components/tetris'
 import Aside from '../components/aside'
 import AsideLeft from '../components/asideLeft'
 import ContainerText from '../components/ContainerText'
-import addShapes from '../functions/addShapes'
-import createBoard from '../functions/createBoard'
-
 
 const container = {
   display: "flex",
@@ -20,12 +16,7 @@ const container = {
 }
 
 const App = () => {
-  const [board, setBoard] = useState(null)
-  const [startShapes, setStartShapes] = useState(false)
   const dispatch = useDispatch()
-  // const socket = socketIoClient('http://0.0.0.0:3004', {
-  //   query: 'room=' + window.location.href.split('/')[3]
-  // })
   const game = useSelector(state => state.game)
   const store = useStore()
 
@@ -33,19 +24,15 @@ const App = () => {
     dispatch({ type:'END' })
   }
 
-  const newShapes = () => {
-    dispatch({ type: 'SHAPES'})
+  const newShapes = (board) => {
+    dispatch({ type: 'SHAPES', board: board})
   }
-
-  useEffect(() => {
-      dispatch({ type: 'START'})
-  }, [])
 
   useEffect(() => {
     function handlekeyupEvent (event) {
       let state = store.getState()
       if (event.keyCode === 13 && !state.game.start) {
-        setBoard(addShapes(createBoard(), store.getState().game.shapes))
+        dispatch({ type: 'START'})
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
@@ -58,9 +45,8 @@ const App = () => {
     <Fragment>
       <div style={container}>
         <AsideLeft shapes={store.getState().game.newShapes}/>
-        { game.start && board ? 
+        { game.start && game.shapes ? 
             <Tetris
-              board={board} 
               endGame={endGame}
               newShapes={newShapes} 
               store={store.getState()}

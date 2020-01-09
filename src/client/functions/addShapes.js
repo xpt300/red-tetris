@@ -1,6 +1,5 @@
 const addShapes = (board, shapes) => {
-    const conc = shapes.concat(board)
-    return conc
+    return shapes.concat(board)
 }
 
 export default addShapes

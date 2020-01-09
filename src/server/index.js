@@ -1,6 +1,7 @@
 import fs  from 'fs'
 import debug from 'debug'
 import shapes from './models/newShapes'
+import playerJoint from './models/playerJoint'
 
 
 const logerror = debug('tetris:error')
@@ -34,24 +35,19 @@ const initEngine = io => {
     loginfo("Socket connected: " + socket.id)
     const query = socket.handshake['query']
     if(query.room !== '') {
-      const arrayQuery = query.room.split('[')
-      const room = arrayQuery[0]
-      const name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
-      console.log('user join ' + room, 'avec le nom : ' + name)
-      socket.join(room)
+      playerJoint(socket, query)
     }
-    socket.on('action', (action, callback) => {
-      if(action.type === 'start'){
-          callback({
-            shapes: shapes(Math.floor(Math.random() * 7)),
+    socket.on('action', (action) => {
+      if (action.type === 'start') {
+        socket.emit('start', {
+          shapes: shapes(Math.floor(Math.random() * 7)),
             newShapes: shapes(Math.floor(Math.random() * 7))
-          })
+        })
+      } else if (action.type === 'shapes') {
+        socket.emit('shapes', {
+          newShapes: shapes(Math.floor(Math.random() * 7)),
+        })
       }
-        // })
-      //   socket.emit('start', {
-      //     shapes: shapes(Math.floor(Math.random() * 7)),
-      //     newShapes: shapes(Math.floor(Math.random() * 7))})
-      // }
     })
     socket.on('event', (event) => {
       console.log(event);

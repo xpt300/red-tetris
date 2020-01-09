@@ -2,6 +2,8 @@ import React, {useState, useEffect, Fragment} from 'react'
 
 import drawBoard from '../functions/drawBoard'
 import useInterval from '../functions/useInterval'
+import addShapes from '../functions/addShapes'
+import createBoard from '../functions/createBoard'
 import { moveShapesDown, moveShapesLeft, moveShapesRight } from '../functions/moveShapes'
 import { rotationShape } from '../functions/rotationShapes'
 import EndText from './EndText'
@@ -17,15 +19,15 @@ const containerTetris = {
   backgroundColor: 'grey',
 }
 
-const Tetris = ({ board, endGame, end, shapes, newShapes }) => {
+const Tetris = ({ endGame, end, shapes, newShapes }) => {
+  const [board, setBoard] = useState(addShapes(createBoard(), shapes))
   const [html, setHtml] = useState(drawBoard(board))
   const [delay, setDelay] = useState(1000)
-
   
   let htmlBoard = drawBoard(board)
   
   useInterval(() => {
-    board = moveShapesDown(board,endGame, newShapes)
+    setBoard(moveShapesDown(board,endGame, newShapes))
     setHtml(drawBoard(board))
   }, end ? null : delay);
 
@@ -38,13 +40,13 @@ const Tetris = ({ board, endGame, end, shapes, newShapes }) => {
     const handlekeyupEvent = (event) => {
       if (!end) {
         if (event.keyCode === 37) {
-          board = moveShapesLeft(board)
+          setBoard(moveShapesLeft(board))
         } else if (event.keyCode === 39) {
-          board = moveShapesRight(board)
+          setBoard(moveShapesRight(board))
         } else if (event.keyCode === 40) {
-          board = moveShapesDown(board, endGame, newShapes)
+          setBoard(moveShapesDown(board, endGame, newShapes))
         } else if (event.keyCode === 32) {
-          board = rotationShape(board)
+          setBoard(rotationShape(board))
         }
         setHtml(drawBoard(board))
       }

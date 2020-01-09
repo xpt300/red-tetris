@@ -15,6 +15,6 @@ export const checkLines = (board, endGame, newShapes) => {
             y--;
         }
     }
-    newShapes()
+    newShapes(board)
     return board
 }
