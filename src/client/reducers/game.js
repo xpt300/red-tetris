@@ -1,5 +1,4 @@
 import { WIN, START, END, SHAPES } from '../actions/game'
-import shapes from '../functions/newShapes'
 
 const initialState = {
   start: false,
@@ -33,7 +32,7 @@ const reducer = (state = initialState , action) => {
       return {
         ...state,
         shapes: state.newShapes,
-        newShapes: shapes(Math.floor(Math.random() * 7))
+        newShapes: action.object.newShapes
       }
     }
     default: 

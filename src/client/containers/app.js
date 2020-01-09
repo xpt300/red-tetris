@@ -21,10 +21,11 @@ const container = {
 
 const App = () => {
   const [board, setBoard] = useState(null)
+  const [startShapes, setStartShapes] = useState(false)
   const dispatch = useDispatch()
-  const socket = socketIoClient('http://0.0.0.0:3004', {
-    query: 'room=' + window.location.href.split('/')[3]
-  })
+  // const socket = socketIoClient('http://0.0.0.0:3004', {
+  //   query: 'room=' + window.location.href.split('/')[3]
+  // })
   const game = useSelector(state => state.game)
   const store = useStore()
 
@@ -37,14 +38,13 @@ const App = () => {
   }
 
   useEffect(() => {
-    socket.emit()
+      dispatch({ type: 'START'})
   }, [])
 
   useEffect(() => {
     function handlekeyupEvent (event) {
       let state = store.getState()
       if (event.keyCode === 13 && !state.game.start) {
-        dispatch({ type: 'START'})
         setBoard(addShapes(createBoard(), store.getState().game.shapes))
       }
     }

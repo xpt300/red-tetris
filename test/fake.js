@@ -1,5 +1,5 @@
 import chai from "chai"
-import newShapes from '../src/client/functions/newShapes'
+import newShapes from '../src/server/models/newShapes'
 import moveShapes from '../src/client/functions/moveShapes'
 import { shapesRandom } from '../src/client/util/shapes'
 

@@ -1,6 +1,6 @@
 import fs  from 'fs'
 import debug from 'debug'
-import shapes from '../client/functions/newShapes'
+import shapes from './models/newShapes'
 
 
 const logerror = debug('tetris:error')
@@ -33,11 +33,13 @@ const initEngine = io => {
   io.on('connection', function(socket){
     loginfo("Socket connected: " + socket.id)
     const query = socket.handshake['query']
-    const arrayQuery = query.room.split('[')
-    const room = arrayQuery[0]
-    const name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
-    console.log('user join ' + room, 'avec le nom : ' + name)
-    socket.join(room)
+    if(query.room !== '') {
+      const arrayQuery = query.room.split('[')
+      const room = arrayQuery[0]
+      const name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
+      console.log('user join ' + room, 'avec le nom : ' + name)
+      socket.join(room)
+    }
     socket.on('action', (action, callback) => {
       if(action.type === 'start'){
           callback({
