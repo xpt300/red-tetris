@@ -20,8 +20,8 @@ const drawBoard = (board) => {
     let htmlBoard = [];
     board.map((line, index) => {
       if (index > 2) {
-        line.map(block => {
-          if (block === 0) {
+        line.map(cell => {
+          if (cell === 0) {
             htmlBoard.push(<div style={hiddenBox} key={htmlBoard.length}/>)
           } else {
             htmlBoard.push(<div style={redBox} key={htmlBoard.length}/>)

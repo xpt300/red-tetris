@@ -5,6 +5,7 @@ import Tetris from '../components/tetris'
 import Aside from '../components/aside'
 import AsideLeft from '../components/asideLeft'
 import ContainerText from '../components/ContainerText'
+import CreateBoard from '../functions/createBoard'
 
 const container = {
   display: "flex",

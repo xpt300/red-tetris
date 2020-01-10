@@ -1,4 +1,4 @@
-import { shapesRandom } from '../util/shapes'
+import { shapesRandom } from './shapes'
 
 const newShapes = (random) => {
   const copyObject = shapesRandom

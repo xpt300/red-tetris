@@ -40,12 +40,12 @@ const initEngine = io => {
     socket.on('action', (action) => {
       if (action.type === 'start') {
         socket.emit('start', {
-          shapes: shapes(Math.floor(Math.random() * 7)),
-            newShapes: shapes(Math.floor(Math.random() * 7))
+          shapes: shapes(),
+            newShapes: shapes()
         })
       } else if (action.type === 'shapes') {
         socket.emit('shapes', {
-          newShapes: shapes(Math.floor(Math.random() * 7)),
+          newShapes: shapes(),
         })
       }
     })
