@@ -1,7 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
 import drawBoard from '../functions/drawBoard'
-import useInterval from '../functions/useInterval'
+import useInterval from '../hook/useInterval'
 import addShapes from '../functions/addShapes'
 import createBoard from '../functions/createBoard'
 import { moveShapesDown, moveShapesLeft, moveShapesRight } from '../functions/moveShapes'
@@ -19,16 +19,16 @@ const containerTetris = {
   backgroundColor: 'grey',
 }
 
-const Tetris = ({ endGame, end, shapes, newShapes }) => {
+const Tetris = ({ endGame, end, shapes, newShapes, color }) => {
   const [board, setBoard] = useState(addShapes(createBoard(), shapes))
-  const [html, setHtml] = useState(drawBoard(board))
+  const [html, setHtml] = useState(drawBoard(board, color))
   const [delay, setDelay] = useState(1000)
   
-  let htmlBoard = drawBoard(board)
+  let htmlBoard = drawBoard(board, color)
   
   useInterval(() => {
     setBoard(moveShapesDown(board,endGame, newShapes))
-    setHtml(drawBoard(board))
+    setHtml(drawBoard(board, color))
   }, end ? null : delay);
 
 
@@ -48,7 +48,7 @@ const Tetris = ({ endGame, end, shapes, newShapes }) => {
         } else if (event.keyCode === 32) {
           setBoard(rotationShape(board))
         }
-        setHtml(drawBoard(board))
+        setHtml(drawBoard(board, color))
       }
     }
     document.addEventListener('keydown', handlekeyupEvent)

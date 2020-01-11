@@ -1,6 +1,6 @@
 import fs  from 'fs'
 import debug from 'debug'
-import shapes from './models/newShapes'
+import shapes from './models/shapes'
 import playerJoint from './models/playerJoint'
 
 

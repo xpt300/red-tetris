@@ -1,20 +1,29 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 
 import Tetris from '../components/tetris'
 import Aside from '../components/aside'
 import AsideLeft from '../components/asideLeft'
 import ContainerText from '../components/ContainerText'
-import CreateBoard from '../functions/createBoard'
+import styled from 'styled-components'
 
-const container = {
-  display: "flex",
-  position: 'relative',
-  justifyContent: "space-around",
-  alignItems: "center",
-  flexWrap: "nowrap",
-  height:"100vh"
-}
+const Container = styled.div`
+  display: flex;
+  position: 'relative';
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  height:100vh;
+`
+
+const Text = styled.h1`
+  position: absolute;
+  font-family: 'Press Start 2P';
+  color: #FF0000;
+  left: 0;
+  right: 0;
+  text-align: center;
+`
 
 const App = () => {
   const dispatch = useDispatch()
@@ -44,18 +53,19 @@ const App = () => {
 
   return (
     <Fragment>
-      <div style={container}>
-        <AsideLeft shapes={store.getState().game.newShapes}/>
-        { game.start && game.shapes ? 
-            <Tetris
-              endGame={endGame}
-              newShapes={newShapes} 
-              store={store.getState()}
-              end={store.getState().game.end} 
-              shapes={store.getState().game.shapes}/> 
-            : <ContainerText text="Press <Enter> for START" />}
-        <Aside />
-      </div>
+        <Text>RED TETRIS</Text>
+        <Container>
+          <AsideLeft shapes={store.getState().game.newShapes}/>
+          { game.start && game.shapes ? 
+              <Tetris
+                endGame={endGame}
+                newShapes={newShapes} 
+                store={store.getState()}
+                end={store.getState().game.end} 
+                {...store.getState().game.shapes}/> 
+              : <ContainerText text="Press <Enter> for START" />}
+          <Aside />
+        </Container>
     </Fragment>
   )
 }

@@ -64,6 +64,8 @@ const shapes = [
     },
 ]
 
-export const randomShapes = () => {
-    return shapes(Math.floor(Math.random() * 7))
+const randomShapes = () => {
+    return shapes[Math.floor(Math.random() * 7)]
 }
+
+export default randomShapes

@@ -5,7 +5,7 @@ const initialState = {
   win: false,
   end: false,
   boardAdversary: [],
-  newShapes:[],
+  newShapes:null,
   shapes: []
 }
 

@@ -1,31 +1,22 @@
 import React from 'react'
 
-const hiddenBox = {
-    width: '10%',
-    height: '5%',
-    flexShrink: '0',
-    backgroundColor: 'black',
-    outline: '1px solid black'
-}
+import styled from 'styled-components'
 
-const redBox = {
-    width: '10%',
-    height: '5%',
-    flexShrink: '0',
-    backgroundColor: 'red',
-    outline: '1px solid black'
-}
+const Shapes = styled.div`
+    width: 10%;
+    height: 5%;
+    flex-shrink: 0;
+    background-color: ${props => props.block === 0
+                        ? 'black' : props.color };
+    outline: 1px solid black;
+`
 
-const drawBoard = (board) => {
+const drawBoard = (board, color) => {
     let htmlBoard = [];
     board.map((line, index) => {
       if (index > 2) {
         line.map(cell => {
-          if (cell === 0) {
-            htmlBoard.push(<div style={hiddenBox} key={htmlBoard.length}/>)
-          } else {
-            htmlBoard.push(<div style={redBox} key={htmlBoard.length}/>)
-          }
+          htmlBoard.push(<Shapes block={cell} color={color} key={htmlBoard.length}/>)
         })
       }
     })
