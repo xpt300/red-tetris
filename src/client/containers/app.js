@@ -51,6 +51,10 @@ const App = () => {
     }
   }, [game.shapes])
 
+  useEffect(() => {
+    dispatch({ type: 'ROOM'})
+  }, [game.text])
+
   return (
     <Fragment>
         <Text>RED TETRIS</Text>
@@ -63,7 +67,7 @@ const App = () => {
                 store={store.getState()}
                 end={store.getState().game.end} 
                 {...store.getState().game.shapes}/> 
-              : <ContainerText text="Press <Enter> for START" />}
+              : <ContainerText text={game.text} />}
           <Aside />
         </Container>
     </Fragment>

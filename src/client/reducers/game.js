@@ -1,4 +1,4 @@
-import { WIN, START, END, SHAPES, BOARDADVERSARY } from '../actions/game'
+import { WIN, START, END, SHAPES, ROOM } from '../actions/game'
 
 const initialState = {
   start: false,
@@ -6,7 +6,9 @@ const initialState = {
   end: false,
   boardAdversary: [],
   newShapes:null,
-  shapes: []
+  shapes: [],
+  text: '',
+  name: ''
 }
 
 const reducer = (state = initialState , action) => {
@@ -34,6 +36,12 @@ const reducer = (state = initialState , action) => {
         shapes: state.newShapes,
         newShapes: action.object.newShapes,
         boardAdversary: action.object.board ? action.object.board : null
+      }
+    case ROOM:
+      return {
+        ...state,
+        text: action.object.text,
+        name: action.object.name ? action.object.name : ''
       }
     default: 
       return state

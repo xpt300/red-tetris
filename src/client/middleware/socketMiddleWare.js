@@ -5,7 +5,13 @@ const socketMiddleWare = (store) => {
         const socket = io('http://0.0.0.0:3004', {
             query: 'room=' + window.location.href.split('/')[3]
         })
-        if (action.type === 'START') {
+        if (action.type === 'ROOM') {
+            socket.emit('co', {type : 'room'})
+            socket.on('text', (obj) => {
+                action.object = obj
+                return next(action)
+            })
+        } else if (action.type === 'START') {
             socket.emit('action', {type : 'start'})
             socket.on('start', (shapes) => {
                 action.object = shapes
