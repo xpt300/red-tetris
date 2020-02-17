@@ -6,7 +6,7 @@ const socketMiddleWare = (store) => {
             query: 'room=' + window.location.href.split('/')[3]
         })
         if (action.type === 'ROOM') {
-            socket.emit('co', {type : 'room'})
+            socket.emit('newPlayer', {type : 'room'})
             socket.on('text', (obj) => {
                 action.object = obj
                 return next(action)

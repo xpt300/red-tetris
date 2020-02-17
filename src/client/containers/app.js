@@ -52,8 +52,10 @@ const App = () => {
   }, [game.shapes])
 
   useEffect(() => {
-    dispatch({ type: 'ROOM'})
-  }, [game.text])
+    if (!game.text) {
+      dispatch({ type: 'ROOM'})
+    }
+  }, [])
 
   return (
     <Fragment>

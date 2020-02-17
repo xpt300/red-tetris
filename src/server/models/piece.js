@@ -64,14 +64,8 @@ const shapes = [
     },
 ]
 
-class Piece {
-    constructor() {
-        this.shapes = [shapes[Math.floor(Math.random() * 7)]]
-    }
-
-    shapes(tour) {
-        return this.shapes[tour]
+export class Piece {
+    shapes() {
+        return shapes[Math.floor(Math.random() * 7)]
     }
 }
-
-export default Piece
