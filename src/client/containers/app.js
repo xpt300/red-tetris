@@ -25,24 +25,24 @@ const Text = styled.h1`
   text-align: center;
 `
 
-const App = () => {
+const App = ({socket}) => {
   const dispatch = useDispatch()
   const game = useSelector(state => state.game)
   const store = useStore()
 
   const endGame = () =>  {
-    dispatch({ type:'END' })
+    dispatch({ type:'END', socket })
   }
 
   const newShapes = (board) => {
-    dispatch({ type: 'SHAPES', board: board})
+    dispatch({ type: 'SHAPES', board: board, socket})
   }
 
   useEffect(() => {
     function handlekeyupEvent (event) {
       let state = store.getState()
       if (event.keyCode === 13 && !state.game.start) {
-        dispatch({ type: 'START'})
+        dispatch({ type: 'START', socket})
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
@@ -53,8 +53,10 @@ const App = () => {
 
   useEffect(() => {
     if (!game.text) {
-      dispatch({ type: 'ROOM'})
+      dispatch({ type: 'ROOM', socket})
     }
+    socket.on('start', (shapes) => dispatch({ type: 'NEWSHAPES', shapes}))
+    socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
   }, [])
 
   return (

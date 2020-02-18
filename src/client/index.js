@@ -8,6 +8,7 @@ import socketMiddleWare from './middleware/socketMiddleWare'
 import storeStateMiddleWare from './middleware/storeStateMiddleWare'
 import reducer from './reducers'
 import App from './containers/app'
+import io from 'socket.io-client'
 
 const initialState = {}
 
@@ -23,8 +24,12 @@ const store = createStore(
   applyMiddleware(...middleware)
 )
 
+const socket = io('http://0.0.0.0:3004', {
+  query: 'room=' + window.location.href.split('/')[3]
+})
+
 ReactDom.render((
   <Provider store={store}>
-    <App/>
+    <App socket={socket}/>
   </Provider>
 ), document.getElementById('tetris'))

@@ -48,21 +48,16 @@ const initEngine = (io) => {
     }
     loginfo("Socket connected: " + socket.id)
     socket.on('newPlayer', (action) => {
-      newPlayer(socket)
+      newPlayer(socket, io)
     })
     socket.on('disconnect', (data) => {
       disconnectRoom(socket)
     })
     socket.on('action', (action) => {
       if (action.type === 'start') {
-        socket.emit('start', {
-          shapes: shapes(),
-            newShapes: shapes()
-        })
+        startGame(socket, io)
       } else if (action.type === 'shapes') {
-        socket.emit('shapes', {
-          newShapes: shapes(),
-        })
+        newShapes(socket, io)
       }
     })
     socket.on('event', (event) => {
@@ -71,7 +66,45 @@ const initEngine = (io) => {
   })
 }
 
-const newPlayer = (socket) => {
+const newShapes = (socket, io) => {
+  // games = games.map(game => {
+  //   if (game.room == socket.addRoom) {
+  //     if (game.master['name'] == socket.name && game.start == false) {
+  //       game.start = true
+  //       const piece = new Piece
+  //       game.pieces.push(piece.shapes())
+  //       game.master['tour'] = game.master['tour'] + 1 
+  //       io.sockets.in(game.room).emit('start', {
+  //           shapes: game.pieces[game.master['tour'] - 1],
+  //           newShapes: game.pieces[game.master['tour']]
+  //       })
+  //     }
+  //   }
+  //   return game
+  // })
+  // console.log(games, 'startGame');
+}
+
+const startGame = (socket, io) => {
+  games = games.map(game => {
+    if (game.room == socket.addRoom) {
+      if (game.master['name'] == socket.name && game.start == false) {
+        game.start = true
+        const piece = new Piece
+        game.pieces.push(piece.shapes())
+        game.master['tour'] = game.master['tour'] + 1 
+        io.sockets.in(game.room).emit('start', {
+            shapes: game.pieces[game.master['tour'] - 1],
+            newShapes: game.pieces[game.master['tour']]
+        })
+      }
+    }
+    return game
+  })
+  console.log(games, 'startGame');
+}
+
+const newPlayer = (socket, io) => {
   const game = games.filter(games => games.room == socket.addRoom)
   if (!game[0]) {
     const player = new Player(socket.name, socket.id)
@@ -80,18 +113,24 @@ const newPlayer = (socket) => {
     const game = new Game(false, 0, socket.addRoom, player, piece.shapes())
     games.push(game)
     socket.emit('text', {text: "You're Master, Press <Enter> for START", name: socket.name})
+    socket.join(game.room)
   } else {
     const player = new Player(socket.name, socket.id)
     socket.player = player
-    games = games.map(games => {
-      if (games.room == socket.addRoom) {
-        games.player.push(player)
+    games = games.map(game => {
+      if (game.room == socket.addRoom) {
+        if (game.start) {
+          socket.emit('text', {text: "The room is start please change...", name: socket.name})  
+        } else {
+          game.player.push(player)
+          socket.emit('text', {text: "Waiting to game start...", name: socket.name})
+          socket.join(game.room)
+        }
       }
-      return games
+      return game
     })
-    socket.emit('text', {text: "Waiting to game start...", name: socket.name})
   }
-  console.log(games);
+  console.log(games, 'Newplayer');
 }
 
 const disconnectRoom = (socket) => {
@@ -104,6 +143,9 @@ const disconnectRoom = (socket) => {
         if (games.master['socketId'] == socket.id) {
           games.master = games.player[0]
           games.player = games.player.slice(1, games.player.length)
+          socket.broadcast.to(games.master['socketId']).emit('newText', {text: "You're Master, Press <Enter> for START"})
+          socket.emit('text', {text: "Waiting to game start...", name: socket.name})
+          socket.leave(games.room)
         }
         return games
       })
@@ -112,10 +154,12 @@ const disconnectRoom = (socket) => {
     games = games.filter(games => {
       if (games.room == socket.addRoom) {
           games.player = games.player.filter(player => player.socketId != socket.id)
+          socket.leave(games.room)
       }
       return games
     })
   }
+  console.log(games), 'disconnect';
 }
 
 export function create(params){

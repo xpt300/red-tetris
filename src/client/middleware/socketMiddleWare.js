@@ -1,33 +1,29 @@
-import io from 'socket.io-client'
-
-const socketMiddleWare = (store) => {
+const socketMiddleWare = () => {
     return next => (action) => {
-        const socket = io('http://0.0.0.0:3004', {
-            query: 'room=' + window.location.href.split('/')[3]
-        })
         if (action.type === 'ROOM') {
-            socket.emit('newPlayer', {type : 'room'})
-            socket.on('text', (obj) => {
+            action.socket.emit('newPlayer', {type : 'room'})
+            action.socket.on('text', (obj) => {
                 action.object = obj
                 return next(action)
             })
         } else if (action.type === 'START') {
-            socket.emit('action', {type : 'start'})
-            socket.on('start', (shapes) => {
+            action.socket.emit('action', {type : 'start'})
+            action.socket.on('start', (shapes) => {
                 action.object = shapes
                 return next(action)
             })
         } else if (action.type === 'SHAPES') {
-            socket.emit('action', {type : 'shapes', board: action.board})
-            socket.on('shapes', (object) => {
+            action.socket.emit('action', {type : 'shapes', board: action.board})
+            action.socket.on('shapes', (object) => {
                 action.object = object
                 return next(action)
             })
         } else if (action.type === 'END') {
-            socket.emit('end')
+            action.socket.emit('end')
+            return next(action)
+        } else {
             return next(action)
         }
-        return 
     }
 }
 
