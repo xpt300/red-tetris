@@ -68,4 +68,12 @@ export class Piece {
     shapes() {
         return shapes[Math.floor(Math.random() * 7)]
     }
+
+    tenShapes() {
+        const shapes = []
+        for (var i = 0; i < 10; i++) {
+            shapes.push(shapes())
+        }
+        return shapes
+    }
 }

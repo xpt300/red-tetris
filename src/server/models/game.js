@@ -4,6 +4,7 @@ export class Game {
         this.room = room
         this.over = false
         this.start = start
+        this.tour = 0
         this.master = player
         this.player = []
         this.pieces = [pieces]
