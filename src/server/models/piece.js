@@ -70,10 +70,10 @@ export class Piece {
     }
 
     tenShapes() {
-        const shapes = []
+        const arrayShapes = []
         for (var i = 0; i < 10; i++) {
-            shapes.push(shapes())
+            arrayShapes.push(shapes[Math.floor(Math.random() * 7)])
         }
-        return shapes
+        return arrayShapes
     }
 }

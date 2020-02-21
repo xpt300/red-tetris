@@ -1,13 +1,12 @@
 export class Game {
-    constructor(start, level, room, player, pieces) {
+    constructor(start, level, room, player) {
         this.level = level
         this.room = room
         this.over = false
         this.start = start
-        this.tour = 0
         this.master = player
         this.player = []
-        this.pieces = [pieces]
+        this.pieces = []
     }
 
     changeLevel (level) {

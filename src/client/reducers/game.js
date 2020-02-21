@@ -5,20 +5,19 @@ const initialState = {
   win: false,
   end: false,
   boardAdversary: [],
-  newShapes:null,
   shapes: [],
   text: '',
   name: ''
 }
 
 const reducer = (state = initialState , action) => {
+  console.log(action, 'reducer');
   switch(action.type){
     case START:
       return {
         ...state,
         start: true,
-        shapes: action.object.shapes,
-        newShapes: action.object.newShapes
+        shapes: action.object.shapes
       }
     case WIN:
       return { 
@@ -37,15 +36,15 @@ const reducer = (state = initialState , action) => {
         newShapes: action.object.newShapes,
         boardAdversary: action.object.board ? action.object.board : null
       }
-    case NEWSHAPES:
-      if (!state.start) {
-        return {
-          ...state,
-          start: true,
-          shapes: action.shapes.shapes,
-          newShapes: action.shapes.newShapes
-        }
-      }
+    // case NEWSHAPES:
+    //   if (action.start) {
+    //     return {
+    //       ...state,
+    //       start: true,
+    //       shapes: action.shapes.shapes,
+    //       newShapes: action.shapes.newShapes
+    //     }
+    //   }
     case ROOM:
       return {
         ...state,

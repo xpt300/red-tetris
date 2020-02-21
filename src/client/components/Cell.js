@@ -11,13 +11,13 @@ const Shapes = styled.div`
     outline: 1px solid white;
 `
 
-const Cell = (shapes) => {
+const Cell = (shape) => {
     let htmlShapes = [];
-    if (shapes) {
-      shapes.shapes.map((line, index) => {
+    if (shape && shape.shapes) {
+      shape.shapes.map((line, index) => {
         if (index > 1) {
           line.map(block => {
-            htmlShapes.push(<Shapes block={block} {...shapes} key={htmlShapes.length}/>)
+            htmlShapes.push(<Shapes block={block} {...shape} key={htmlShapes.length}/>)
           })
         }
       })

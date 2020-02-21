@@ -8,8 +8,8 @@ const socketMiddleWare = () => {
             })
         } else if (action.type === 'START') {
             action.socket.emit('action', {type : 'start'})
-            action.socket.on('start', (shapes) => {
-                action.object = shapes
+            action.socket.on('start', (newShapes) => {
+                action.object = newShapes
                 return next(action)
             })
         } else if (action.type === 'SHAPES') {

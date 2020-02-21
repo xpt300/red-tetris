@@ -55,7 +55,7 @@ const App = ({socket}) => {
     if (!game.text) {
       dispatch({ type: 'ROOM', socket})
     }
-    socket.on('start', (shapes) => dispatch({ type: 'NEWSHAPES', shapes}))
+    // socket.on('start', (shapes) => dispatch({ type: 'NEWSHAPES', shapes}))
     socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
   }, [])
 
@@ -63,8 +63,8 @@ const App = ({socket}) => {
     <Fragment>
         <Text>RED TETRIS</Text>
         <Container>
-          <AsideLeft shapes={store.getState().game.newShapes}/>
-          { game.start && game.shapes ? 
+          <AsideLeft shapes={store.getState().game.shapes}/>
+          {/* { game.start && game.shapes ? 
               <Tetris
                 endGame={endGame}
                 newShapes={newShapes} 
@@ -72,7 +72,7 @@ const App = ({socket}) => {
                 end={store.getState().game.end} 
                 {...store.getState().game.shapes}/> 
               : <ContainerText text={game.text} />}
-          <Aside />
+          <Aside /> */}
         </Container>
     </Fragment>
   )

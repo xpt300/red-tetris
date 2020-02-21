@@ -35,11 +35,7 @@ io.on('connection', function (socket) {
       console.log('user join ' + socket.id, 'avec le nom : ' + socket.name + ' dans la room ' + socket.addRoom)
     }
     socket.on('newPlayer', (action) => {
-        if (socket.addRoom) {
-            games = newPlayer(socket, games)
-        } else {
-            socket.emit('text', {text: "You're Master, Press <Enter> for START", name: socket.name})
-        }
+      games = newPlayer(socket, games)
     })
     socket.on('disconnect', (data) => {
       games = disconnectRoom(socket, games)
@@ -47,22 +43,9 @@ io.on('connection', function (socket) {
     const piece = new Piece
     socket.on('action', (action) => {
       if (action.type === 'start') {
-          if (socket.addRoom) {
-            games = startGame(socket, io, games)
-          }
-          else {
-            socket.emit('start', {
-                newShapes: piece.shapes()
-            })
-          } 
+          games = startGame(socket, io, games)
       } else if (action.type === 'shapes') {
-          if (socket.addRoom) {
-            games = newShapes(socket, io, games)
-          } else {
-            socket.emit('shapes', {
-                newShapes: piece.shapes()
-            })
-          }
+          games = newShapes(socket, io, games)
       }
     })
     socket.on('event', (event) => {

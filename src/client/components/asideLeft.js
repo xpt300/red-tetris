@@ -39,8 +39,8 @@ const TextInput = styled.h2`
     color: ${props => props.color};
 `
 
-const AsideLeft = (shapes) => {
-    let htmlShapes = Cell(shapes.shapes)
+const AsideLeft = (shape) => {
+    let htmlShapes = Cell(shape.shapes[1])
     return (
         <Aside>
             <TextContainer>
