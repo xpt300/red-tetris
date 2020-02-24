@@ -1,3 +1,3 @@
 export { Game } from './game'
-export { Piece } from './piece'
+export { Tetriminos } from './tetriminos'
 export { Player } from './player'

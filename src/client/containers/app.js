@@ -1,11 +1,12 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 
-import Tetris from '../components/tetris'
 import Aside from '../components/aside'
 import AsideLeft from '../components/asideLeft'
 import ContainerText from '../components/ContainerText'
 import styled from 'styled-components'
+
+import Tetris from "../components/Tetris"
 
 const Container = styled.div`
   display: flex;
@@ -55,7 +56,7 @@ const App = ({socket}) => {
     if (!game.text) {
       dispatch({ type: 'ROOM', socket})
     }
-    // socket.on('start', (shapes) => dispatch({ type: 'NEWSHAPES', shapes}))
+    socket.on('start', (shapes) => dispatch({ type: 'NEWSHAPES', shapes}))
     socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
   }, [])
 
@@ -63,16 +64,14 @@ const App = ({socket}) => {
     <Fragment>
         <Text>RED TETRIS</Text>
         <Container>
-          <AsideLeft shapes={store.getState().game.shapes}/>
-          {/* { game.start && game.shapes ? 
+          <AsideLeft {...store.getState().game}/>
+          {/* {game.start && game.shapes ? 
               <Tetris
                 endGame={endGame}
                 newShapes={newShapes} 
-                store={store.getState()}
-                end={store.getState().game.end} 
-                {...store.getState().game.shapes}/> 
-              : <ContainerText text={game.text} />}
-          <Aside /> */}
+                store={store.getState().game}/> 
+               : <ContainerText text={game.text} />} */}
+          <Aside />
         </Container>
     </Fragment>
   )

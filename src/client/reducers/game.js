@@ -4,6 +4,8 @@ const initialState = {
   start: false,
   win: false,
   end: false,
+  score: 0,
+  level: 0,
   boardAdversary: [],
   shapes: [],
   text: '',

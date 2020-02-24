@@ -1,4 +1,4 @@
-import { Piece } from '../models'
+import { Tetriminos } from '../models'
 
 export const newShapes = (socket, io, games) => {
     games = games.map(game => {
@@ -7,8 +7,8 @@ export const newShapes = (socket, io, games) => {
                 if (socket.id == player['socketId']) {
                     console.log(player.name, player.tour, game.tour);
                     if (player.tour >= game.tour) {
-                        const piece = new Piece
-                        game.pieces.push(piece.shapes())
+                        const tetriminos = new Tetriminos
+                        game.pieces.push(tetriminos.randomTetromino())
                         game.tour = game.tour + 1 
                         console.log(player.tour, game.tour, game.pieces.length, 'if');
                         socket.emit('shapes', {

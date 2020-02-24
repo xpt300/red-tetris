@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import Cell from '../components/Cell'
 import styled from 'styled-components'
+import { StagePreview } from './Stage';
+
+import { createStagePreview } from '../gameHelper'
 
 const TextContainer = styled.div`
     display: flex;
@@ -39,19 +41,20 @@ const TextInput = styled.h2`
     color: ${props => props.color};
 `
 
-const AsideLeft = (shape) => {
-    let htmlShapes = Cell(shape.shapes[1])
+const AsideLeft = ({score, level, shapes}) => {
+    const [stage, setStage] = useState(createStagePreview());
+    console.log(shapes);
     return (
         <Aside>
             <TextContainer>
                 <Text>NEXT</Text>
                 <ContainerShapes>
-                {htmlShapes}
+                    {shapes && shapes[1] ? <StagePreview stage={stage} color={shapes[1].color}/> : null}
                 </ContainerShapes>
                 <Text>SCORE</Text>
-                <TextInput color='#FF3333'>0</TextInput>
+                <TextInput color='#FF3333'>{score}</TextInput>
                 <Text>LEVEL</Text>
-                <TextInput color='#5DFF33'>0</TextInput>
+                <TextInput color='#5DFF33'>{level}</TextInput>
             </TextContainer>
         </Aside>
     )

@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 
 import { disconnectRoom, newPlayer, startGame, newShapes } from './controllers/index'
-import { Piece } from './models'
 
 let games = []
 
@@ -40,7 +39,6 @@ io.on('connection', function (socket) {
     socket.on('disconnect', (data) => {
       games = disconnectRoom(socket, games)
     })
-    const piece = new Piece
     socket.on('action', (action) => {
       if (action.type === 'start') {
           games = startGame(socket, io, games)

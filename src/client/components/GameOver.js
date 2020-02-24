@@ -14,7 +14,7 @@ const image = {
     width: '50%'
 }
 
-const EndText = ( {win} ) => {
+const GameOver = ( {win} ) => {
     return (
         <span style={container}>
             <img
@@ -26,4 +26,4 @@ const EndText = ( {win} ) => {
     )
 }
 
-export default EndText
+export default GameOver

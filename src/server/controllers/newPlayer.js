@@ -1,17 +1,16 @@
-import { Game, Player, Piece } from '../models'
+import { Game, Player, Tetriminos } from '../models'
 
 export const newPlayer = (socket, games) => {
     const game = games.filter(games => games.room == socket.addRoom)
     if (!game[0]) {
       if (!socket.addRoom) socket.addRoom = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
       if (!socket.name) socket.name = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      const pieces = new Piece
+      const tetriminos = new Tetriminos
       const player = new Player(socket.name, socket.id)
       socket.player = player
       const game = new Game(false, 0, socket.addRoom, player)
-      for (var i = 0; i < 10; i++) {
-        game.pieces.push(pieces.shapes())
-      }
+      game.pieces.push(tetriminos.randomTetromino())
+      game.pieces.push(tetriminos.randomTetromino())
       game.player.push(player)
       games.push(game)
       socket.emit('text', {text: "You're Master, Press <Enter> for START", name: socket.name})
