@@ -25,15 +25,14 @@ const Tetris = ({ endGame, newShapes, store }) => {
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer)
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared)
   
-  useInterval(() => {
-    drop()
-  }, store.end ? null : delay);
+  // useInterval(() => {
+  //   drop()
+  // }, store.end ? null : delay);
 
 
   useEffect(() => {
-    const handlekeyupEvent = ({ keyCode }) => {
+    const handlekeydownEvent = ({ keyCode }) => {
       if (!store.end) {
-        console.log(keyCode, 'tess');
         switch (keyCode) {
           case 37 : 
             movePlayer(-1)
@@ -53,28 +52,38 @@ const Tetris = ({ endGame, newShapes, store }) => {
         }
       }
     }
-    document.addEventListener('keydown', handlekeyupEvent)
+    const handlekeyupEvent = ({ keyCode }) => {
+      if (!store.end) {
+        switch (keyCode) {
+          case 40 :
+            setDelay(1000)
+        }
+      }
+    }
+    document.addEventListener('keydown', handlekeydownEvent)
+    document.addEventListener('keyup', handlekeyupEvent)
     return () => {
-      document.removeEventListener('keydown', handlekeyupEvent)
+      document.removeEventListener('keydown', handlekeydownEvent)
+      document.removeEventListener('keyup', handlekeyupEvent)
     }
   }, [])
 
   const movePlayer = dir => {
-    if (!checkCollision(player, stage, { x: dir, y: 0})) {
-      updatePlayerPos({ x: dir, y: 0})
+    console.log(player , 'moooove');
+    if (!checkCollision(player, stage, { x: dir, y: 0 })) {
+      updatePlayerPos({ x: dir, y: 0, collided: false});
     }
-  }
+  };
 
   const startGame = () => {
     setStage(createStage())
-    resetPlayer()
+    resetPlayer(store.shapes[0].shape)
     setScore(0)
     setRows(0)
     setLevel(0)
   }
 
   const drop = () => {
-
     if (rows > (level + 1) * 10) {
       setLevel(prev => prev + 1)
       // setDelay(1000 / (level + 1) + 200)
@@ -92,11 +101,11 @@ const Tetris = ({ endGame, newShapes, store }) => {
   }
 
   const dropPlayer = () => {
-    // setDelay(null)
+    setDelay(null)
     drop()
   }
 
-  return console.log(stage, 'res====') || (
+  return console.log(player) || (
     <Fragment>
       <div style={containerTetris}>
         <Stage stage={stage}/>

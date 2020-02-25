@@ -8,9 +8,11 @@ export const createStagePreview = () =>
     Array.from(Array(4), () => Array(WIDTH).fill([0, 'clear']))
 
 export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
+  console.log(player, 'collision');
   // Using for loops to be able to return (and break). Not possible with forEach
   for (let y = 0; y < player.tetromino.length; y += 1) {
     for (let x = 0; x < player.tetromino[y].length; x += 1) {
+      console.log(player.pos.x, moveX, x , x + player.pos.x + moveX);
       // 1. Check that we're on an actual Tetromino cell
       if (player.tetromino[y][x] !== 0) {
         if (

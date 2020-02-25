@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { useStore } from 'react-redux'
 
 import { WIDTH, checkCollision } from '../gameHelper'
 
@@ -9,9 +10,10 @@ const TETRO = {
 }
 
 export const usePlayer = () => {
+    const store = useStore()
     const [player, setPlayer] = useState({
-      pos: { x: 0, y: 0 },
-      tetromino: TETROMINOS[0].shape,
+      pos: { x: WIDTH / 2 - 2, y: 0 },
+      tetromino: store.getState().game.shapes[0].shape,
       collided: false,
     });
   
@@ -45,14 +47,14 @@ export const usePlayer = () => {
       setPlayer(prev => ({
         ...prev,
         pos: { x: (prev.pos.x += x), y: (prev.pos.y += y) },
-        collided,
+        collided
       }));
     };
   
-    const resetPlayer = useCallback(() => {
+    const resetPlayer = useCallback((tetrimono) => {
       setPlayer({
         pos: { x: WIDTH / 2 - 2, y: 0 },
-        tetromino: randomTetromino().shape,
+        tetromino: tetrimono,
         collided: false,
       });
     }, []);

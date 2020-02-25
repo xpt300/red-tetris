@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 
 import styled from 'styled-components'
 import { StagePreview } from './Stage';
 
+import { useStagePreview } from '../hook/useStagePreview'
+import { usePlayerPreview } from '../hook/usePlayerPreview'
 import { createStagePreview } from '../gameHelper'
 
 const TextContainer = styled.div`
@@ -42,8 +44,16 @@ const TextInput = styled.h2`
 `
 
 const AsideLeft = ({score, level, shapes}) => {
-    const [stage, setStage] = useState(createStagePreview());
-    console.log(shapes);
+    const [player, resetPlayer] = usePlayerPreview()
+    const [stage, setStage, rowsCleared] = useStagePreview(player, resetPlayer)
+
+    useEffect(() => {
+        setStage(createStagePreview())
+        if (shapes[1] && shapes[1].shape) {
+            resetPlayer(shapes[1].shape)
+        }
+    }, [shapes]);
+
     return (
         <Aside>
             <TextContainer>

@@ -3,10 +3,7 @@ export class Tetriminos {
         this.TETROMINOS = {
             I: {
                 shape: [
-                    [0, "I", 0, 0],
-                    [0, "I", 0, 0],
-                    [0, "I", 0, 0],
-                    [0, "I", 0, 0]
+                    ["I", "I", "I", "I"]
                 ],
                 color: "80, 227, 230"
             },

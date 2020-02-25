@@ -35,6 +35,8 @@ const App = ({socket}) => {
     dispatch({ type:'END', socket })
   }
 
+  console.log('re-render');
+
   const newShapes = (board) => {
     dispatch({ type: 'SHAPES', board: board, socket})
   }
@@ -65,12 +67,12 @@ const App = ({socket}) => {
         <Text>RED TETRIS</Text>
         <Container>
           <AsideLeft {...store.getState().game}/>
-          {/* {game.start && game.shapes ? 
+          {game.start && game.shapes ? 
               <Tetris
                 endGame={endGame}
                 newShapes={newShapes} 
                 store={store.getState().game}/> 
-               : <ContainerText text={game.text} />} */}
+               : <ContainerText text={game.text} />}
           <Aside />
         </Container>
     </Fragment>
