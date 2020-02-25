@@ -5,20 +5,16 @@ export const newShapes = (socket, io, games) => {
         if (game.room == socket.addRoom) {
             game.player = game.player.map(player => {
                 if (socket.id == player['socketId']) {
-                    if (player.tour >= game.tour) {
-                        const tetriminos = new Tetriminos
-                        game.pieces.push(tetriminos.randomTetromino())
-                        game.tour = game.tour + 1 
-                        socket.emit('shapes', {
-                            newShapes: game.pieces[player.tour]
-                        })
-                        player.tour = player.tour + 1
-                    } else {
-                        socket.emit('shapes', {
-                            newShapes: game.pieces[player.tour]
-                        })
-                        player.tour = player.tour + 1
+                    const tetriminos = new Tetriminos
+                    const forSend = []
+                    for (let i = 0; i < 5; i++) {
+                        const tetro = tetriminos.randomTetromino()
+                        game.pieces.push(tetro)
+                        forSend.push(tetro)
                     }
+                    socket.emit('shapes', {
+                        newShapes: tetro
+                    })
                 }
                 return player
             })

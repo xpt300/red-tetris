@@ -15,7 +15,6 @@ const socketMiddleWare = () => {
         } else if (action.type === 'SHAPES') {
             action.socket.emit('action', {type : 'shapes', board: action.board})
             action.socket.on('shapes', (object) => {
-                console.log(object);
                 action.object = object
                 return next(action)
             })

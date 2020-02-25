@@ -29,7 +29,6 @@ const Tetris = ({ endGame, newShapes, store }) => {
     drop()
   }, store.end ? null : delay);
 
-
   useEffect(() => {
     const handlekeydownEvent = ({ keyCode }) => {
       if (!store.end) {

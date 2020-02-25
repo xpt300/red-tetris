@@ -9,8 +9,9 @@ export const newPlayer = (socket, games) => {
       const player = new Player(socket.name, socket.id)
       socket.player = player
       const game = new Game(false, 0, socket.addRoom, player)
-      game.pieces.push(tetriminos.randomTetromino())
-      game.pieces.push(tetriminos.randomTetromino())
+      for (let i = 0; i < 10; i++) {
+        game.pieces.push(tetriminos.randomTetromino())
+      }
       game.player.push(player)
       games.push(game)
       socket.emit('text', {text: "You're Master, Press <Enter> for START", name: socket.name})

@@ -38,7 +38,10 @@ const App = ({socket}) => {
   console.log('re-render');
 
   const newShapes = (board) => {
-    dispatch({ type: 'SHAPES', board: board, socket})
+    if (game.shapes.length < 5) {
+      dispatch({ type: 'SHAPES', board: board, socket})
+    }
+    dispatch({ type: 'DELETESHAPE'})
   }
 
   useEffect(() => {

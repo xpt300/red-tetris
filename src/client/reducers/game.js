@@ -1,4 +1,4 @@
-import { WIN, START, END, SHAPES, ROOM, NEWSHAPES, NEWTEXT } from '../actions/game'
+import { WIN, START, END, SHAPES, ROOM, DELETESHAPE, NEWTEXT } from '../actions/game'
 
 const initialState = {
   start: false,
@@ -13,7 +13,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState , action) => {
-  console.log(action, 'reducer');
   switch(action.type){
     case START:
       return {
@@ -34,19 +33,14 @@ const reducer = (state = initialState , action) => {
     case SHAPES:
       return {
         ...state,
-        shapes: state.newShapes,
-        newShapes: action.object.newShapes,
+        shapes: state.shapes.concat(action.object.newShapes).slice(5),
         boardAdversary: action.object.board ? action.object.board : null
       }
-    // case NEWSHAPES:
-    //   if (action.start) {
-    //     return {
-    //       ...state,
-    //       start: true,
-    //       shapes: action.shapes.shapes,
-    //       newShapes: action.shapes.newShapes
-    //     }
-    //   }
+    case DELETESHAPE:
+        return {
+          ...state,
+          shapes: state.shapes.slice(1)
+        }
     case ROOM:
       return {
         ...state,
@@ -58,7 +52,7 @@ const reducer = (state = initialState , action) => {
         ...state,
         text: action.text.text
       }
-    default: 
+    default:
       return state
   }
 }
