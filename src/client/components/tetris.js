@@ -25,9 +25,9 @@ const Tetris = ({ endGame, newShapes, store }) => {
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer)
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared)
   
-  // useInterval(() => {
-  //   drop()
-  // }, store.end ? null : delay);
+  useInterval(() => {
+    drop()
+  }, store.end ? null : delay);
 
 
   useEffect(() => {
@@ -66,12 +66,11 @@ const Tetris = ({ endGame, newShapes, store }) => {
       document.removeEventListener('keydown', handlekeydownEvent)
       document.removeEventListener('keyup', handlekeyupEvent)
     }
-  }, [])
+  }, [player])
 
   const movePlayer = dir => {
-    console.log(player , 'moooove');
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
-      updatePlayerPos({ x: dir, y: 0, collided: false});
+      updatePlayerPos({ x: dir, y: 0});
     }
   };
 
@@ -105,7 +104,7 @@ const Tetris = ({ endGame, newShapes, store }) => {
     drop()
   }
 
-  return console.log(player) || (
+  return (
     <Fragment>
       <div style={containerTetris}>
         <Stage stage={stage}/>

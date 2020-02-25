@@ -3,12 +3,6 @@ import { useStore } from 'react-redux'
 
 import { WIDTH, checkCollision } from '../gameHelper'
 
-import { TETROMINOS, randomTetromino } from '../../server/models/tetriminos';
-
-const TETRO = {
-    0: { shape: [[0]], color: '0, 0, 0' },
-}
-
 export const usePlayer = () => {
     const store = useStore()
     const [player, setPlayer] = useState({
@@ -51,10 +45,10 @@ export const usePlayer = () => {
       }));
     };
   
-    const resetPlayer = useCallback((tetrimono) => {
+    const resetPlayer = useCallback((tetrimino) => {
       setPlayer({
         pos: { x: WIDTH / 2 - 2, y: 0 },
-        tetromino: tetrimono,
+        tetromino: tetrimino,
         collided: false,
       });
     }, []);
