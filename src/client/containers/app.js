@@ -65,7 +65,7 @@ const App = ({socket}) => {
     socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
   }, [])
 
-  return (
+  return  (
     <Fragment>
         <Text>RED TETRIS</Text>
         <Container>

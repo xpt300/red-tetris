@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { createStage } from '../gameHelper'
+import { useStore } from 'react-redux'
 
 export const useStage = (player, resetPlayer) => {
+    const store = useStore()
     const [stage, setStage] = useState(createStage());
     const [rowsCleared, setRowsCleared] = useState(0);
   
@@ -23,7 +25,6 @@ export const useStage = (player, resetPlayer) => {
         const newStage = prevStage.map(row =>
           row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell))
         );
-          console.log(player.tetromino, 'LOOOL');
         // Then draw the tetromino
         player.tetromino.forEach((row, y) => {
           row.forEach((value, x) => {
@@ -37,7 +38,7 @@ export const useStage = (player, resetPlayer) => {
         });
         // Then check if we got some score if collided
         if (player.collided) {
-          resetPlayer();
+          resetPlayer(store.getState().game.shapes[0].shape);
           return sweepRows(newStage);
         }
         return newStage;

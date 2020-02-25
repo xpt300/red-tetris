@@ -74,6 +74,7 @@ const Tetris = ({ endGame, newShapes, store }) => {
   };
 
   const startGame = () => {
+
     setStage(createStage())
     resetPlayer(store.shapes[0].shape)
     setScore(0)
