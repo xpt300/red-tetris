@@ -14,12 +14,19 @@ const socketMiddleWare = () => {
             })
         } else if (action.type === 'SHAPES') {
             action.socket.emit('action', {type : 'shapes', board: action.board})
-            action.socket.on('shapes', (object) => {
+        } else if (action.type === 'END') {
+            action.socket.emit('end')
+            return
+        } else if (action.type === 'SCORE') {
+            action.socket.emit('action', {type : 'score', score : action.score})
+            action.socket.on('score', (object) => {
                 action.object = object
                 return next(action)
             })
-        } else if (action.type === 'END') {
-            action.socket.emit('end')
+        } else if (action.type === 'LEVEL') {
+            action.socket.emit('action', {type : 'level', ope : action.ope})
+        } else if (action.type === 'MAJBOARD') {
+            action.socket.emit('action', {type: 'board', board : action.stage})
             return next(action)
         } else {
             return next(action)

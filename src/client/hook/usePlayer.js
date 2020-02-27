@@ -46,8 +46,6 @@ export const usePlayer = () => {
     };
   
     const resetPlayer = useCallback((tetrimino) => {
-      console.log("tetrimino")
-      console.log(tetrimino)
       setPlayer({
         pos: { x: WIDTH / 2 - 2, y: 0 },
         tetromino: tetrimino,

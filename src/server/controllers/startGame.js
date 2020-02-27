@@ -7,7 +7,8 @@ export const startGame = (socket, io, games) => {
           game.start = true
           io.sockets.in(game.room).emit('start', {
               shapes: game.pieces,
-              start: true
+              start: true,
+              player: game.player.length
           })
         }
       }

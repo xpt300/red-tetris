@@ -19,15 +19,15 @@ const containerTetris = {
   height: '80vh',
 }
 
-const Tetris = ({ endGame, newShapes, store }) => {
-  const [delay, setDelay] = useState(1000)
+const Tetris = ({ endGame, newShapes, store, handleScore, socket }) => {
+  const [delay, setDelay] = useState(store.delay)
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer()
-  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer)
+  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer, socket)
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared)
   
-  useInterval(() => {
-    drop()
-  }, store.end ? null : delay);
+  // useInterval(() => {
+  //   drop()
+  // }, store.end ? null : delay);
 
   useEffect(() => {
     const handlekeydownEvent = ({ keyCode }) => {
@@ -45,9 +45,6 @@ const Tetris = ({ endGame, newShapes, store }) => {
           case 32 : 
             playerRotate(stage, 1)
             break;
-          case 13 : 
-            startGame()
-            break;
         }
       }
     }
@@ -55,7 +52,7 @@ const Tetris = ({ endGame, newShapes, store }) => {
       if (!store.end) {
         switch (keyCode) {
           case 40 :
-            setDelay(1000)
+            setDelay(store.delay)
         }
       }
     }
@@ -67,32 +64,27 @@ const Tetris = ({ endGame, newShapes, store }) => {
     }
   }, [player])
 
+  useEffect(() => {
+    if (score > 0) handleScore(score)
+  }, [score]);
+
+
   const movePlayer = dir => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
       updatePlayerPos({ x: dir, y: 0});
     }
   };
 
-  const startGame = () => {
-
-    setStage(createStage())
-    resetPlayer(store.shapes[0].shape)
-    setScore(0)
-    setRows(0)
-    setLevel(0)
-  }
-
   const drop = () => {
     if (rows > (level + 1) * 10) {
       setLevel(prev => prev + 1)
-      // setDelay(1000 / (level + 1) + 200)
     }
     if (!checkCollision(player, stage, { x: 0, y: 1})) {
       updatePlayerPos({ x: 0, y: 1, collided: false})
     } else {
       if (player.pos.y < 1) {
-        console.log("GAMEOVER");
         endGame()
+        setDelay(null)
       }
       updatePlayerPos({ x: 0, y: 0, collided: true})
       newShapes()

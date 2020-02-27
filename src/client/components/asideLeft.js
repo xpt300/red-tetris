@@ -5,7 +5,6 @@ import { StagePreview } from './Stage';
 
 import { useStagePreview } from '../hook/useStagePreview'
 import { usePlayerPreview } from '../hook/usePlayerPreview'
-import { createStagePreview } from '../gameHelper'
 
 const TextContainer = styled.div`
     display: flex;
@@ -48,7 +47,6 @@ const AsideLeft = ({score, level, shapes}) => {
     const [stage, setStage, rowsCleared] = useStagePreview(player, resetPlayer)
 
     useEffect(() => {
-        setStage(createStagePreview())
         if (shapes[1] && shapes[1].shape) {
             resetPlayer(shapes[1].shape)
         }
@@ -59,7 +57,7 @@ const AsideLeft = ({score, level, shapes}) => {
             <TextContainer>
                 <Text>NEXT</Text>
                 <ContainerShapes>
-                    {shapes && shapes[1] ? <StagePreview stage={stage} color={shapes[1].color}/> : null}
+                    {shapes && shapes[1] ? <StagePreview stage={stage}/> : null}
                 </ContainerShapes>
                 <Text>SCORE</Text>
                 <TextInput color='#FF3333'>{score}</TextInput>

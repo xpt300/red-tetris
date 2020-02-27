@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 
-import Aside from '../components/aside'
+import AsideRight from '../components/AsideRight'
 import AsideLeft from '../components/asideLeft'
 import ContainerText from '../components/ContainerText'
 import styled from 'styled-components'
@@ -35,20 +35,36 @@ const App = ({socket}) => {
     dispatch({ type:'END', socket })
   }
 
-  console.log('re-render');
+  const handleScore = (score) => {
+    dispatch({ type : 'SCORE', score, socket})
+  }
 
-  const newShapes = (board) => {
-    if (game.shapes.length < 5) {
-      dispatch({ type: 'SHAPES', board: board, socket})
+  const handleLevel = (ope) => {
+    dispatch({ type : 'LEVEL', ope, socket})
+  }
+
+  const newShapes = () => {
+    if (store.getState().game.shapes.length <= 6) {
+      dispatch({ type: 'SHAPES', socket})
     }
-    dispatch({ type: 'DELETESHAPE'})
+    dispatch({ type: 'DELETESHAPE', socket})
   }
 
   useEffect(() => {
     function handlekeyupEvent (event) {
       let state = store.getState()
-      if (event.keyCode === 13 && !state.game.start) {
-        dispatch({ type: 'START', socket})
+      if (!state.game.start) {
+        switch (event.keyCode) {
+          case 13 : 
+            dispatch({ type: 'START', socket})
+            break;
+          case 107 :
+              if (state.game.level < 5) handleLevel('+')
+              break;
+          case 109 :
+              if (state.game.level > 0) handleLevel('-')
+              break;
+        }
       }
     }
     document.addEventListener('keyup', handlekeyupEvent)
@@ -61,11 +77,15 @@ const App = ({socket}) => {
     if (!game.text) {
       dispatch({ type: 'ROOM', socket})
     }
-    socket.on('start', (shapes) => dispatch({ type: 'NEWSHAPES', shapes}))
+    socket.on('start', (newShapes) => dispatch({ type: 'NEWSHAPES', newShapes}))
+    socket.on('shapes', (newShapes) => dispatch({ type: 'NEWSHAPES', newShapes}))
     socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
+    socket.on('level', (level) => dispatch({ type: 'NEWLEVEL', level}))
+    socket.on('end', (score) => dispatch({ type: 'ENDGAME', score}))
+    socket.on('board', (board) => dispatch({ type: 'BOARD', board}))
   }, [])
 
-  return  (
+  return console.log(store.getState().game) || (
     <Fragment>
         <Text>RED TETRIS</Text>
         <Container>
@@ -73,10 +93,12 @@ const App = ({socket}) => {
           {game.start && game.shapes ? 
               <Tetris
                 endGame={endGame}
-                newShapes={newShapes} 
+                newShapes={newShapes}
+                handleScore={handleScore}
+                socket={socket}
                 store={store.getState().game}/> 
                : <ContainerText text={game.text} />}
-          <Aside />
+          <AsideRight {...store.getState().game}/>
         </Container>
     </Fragment>
   )

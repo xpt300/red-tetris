@@ -1,8 +1,6 @@
 import { useState, useCallback } from 'react'
 
-import { WIDTH, checkCollision } from '../gameHelper'
-
-import { TETROMINOS, randomTetromino } from '../../server/models/tetriminos';
+import { WIDTH } from '../gameHelper'
 
 const TETRO = {
     0: { shape: [[0]], color: '0, 0, 0' },
@@ -14,10 +12,10 @@ export const usePlayerPreview = () => {
       tetromino: TETRO[0].shape,
     });
   
-    const resetPlayer = useCallback((tetrimono) => {
+    const resetPlayer = useCallback((tetromino) => {
       setPlayer({
         pos: { x: WIDTH / 2 - 2, y: 0 },
-        tetromino: tetrimono,
+        tetromino: tetromino,
         collided: false,
       });
     }, []);

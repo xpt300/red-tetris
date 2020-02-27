@@ -8,12 +8,12 @@ export const newShapes = (socket, io, games) => {
                     const tetriminos = new Tetriminos
                     const forSend = []
                     for (let i = 0; i < 5; i++) {
-                        const tetro = tetriminos.randomTetromino()
+                        let tetro = tetriminos.randomTetromino()
                         game.pieces.push(tetro)
                         forSend.push(tetro)
                     }
-                    socket.emit('shapes', {
-                        newShapes: tetro
+                    io.sockets.in(game.room).emit('shapes', {
+                        shapes: forSend
                     })
                 }
                 return player
@@ -21,6 +21,6 @@ export const newShapes = (socket, io, games) => {
         }
         return game
     })
-    console.log(games, 'startGame');
+    console.log(games, 'newShapes');
     return games
 }

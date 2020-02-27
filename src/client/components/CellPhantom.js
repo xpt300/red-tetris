@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const StyledCell = styled.div`
     width: 10%;
-    height: 4vh;
+    height: 5%;
     flex-shrink: 0;
     background: rgba(${props => props.color});
 `

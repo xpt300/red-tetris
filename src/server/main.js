@@ -2,7 +2,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 
-import { disconnectRoom, newPlayer, startGame, newShapes } from './controllers/index'
+import { disconnectRoom, newPlayer, startGame, newShapes, score, level, endGame, board } from './controllers/index'
 
 let games = []
 
@@ -33,21 +33,33 @@ io.on('connection', function (socket) {
       socket.name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
       console.log('user join ' + socket.id, 'avec le nom : ' + socket.name + ' dans la room ' + socket.addRoom)
     }
-    socket.on('newPlayer', (action) => {
+    socket.on('newPlayer', () => {
       games = newPlayer(socket, games)
     })
-    socket.on('disconnect', (data) => {
+    socket.on('disconnect', () => {
       games = disconnectRoom(socket, games)
     })
-    socket.on('action', (action) => {
-      if (action.type === 'start') {
-          games = startGame(socket, io, games)
-      } else if (action.type === 'shapes') {
-          games = newShapes(socket, io, games)
-      }
+    socket.on('end', () => {
+      games = endGame(socket, io, games)
     })
-    socket.on('event', (event) => {
-      console.log(event);
+    socket.on('action', (action) => {
+      switch (action.type) {
+        case 'start' :
+          games = startGame(socket, io, games)
+          break;
+        case 'shapes' : 
+          games = newShapes(socket, io, games)
+          break;
+        case 'score' : 
+          games = score(socket, action.score, games)
+          break;
+        case 'level' : 
+          games = level(socket, action.ope, games, io)
+          break;
+        case 'board' : 
+          games = board(socket, action.board, games, io)
+          break;
+      }
     })
 });
 

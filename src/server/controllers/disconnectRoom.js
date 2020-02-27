@@ -1,7 +1,7 @@
 export const disconnectRoom = (socket, games) => {
     const test = games.filter(games => games.room == socket.addRoom)
     if (test[0] && test[0].master['socketId'] == socket.id) {
-      if (test[0].player.length == 0) {
+      if (test[0].player.length == 1) {
         games = games.filter(games => games.room != socket.addRoom)
       } else {
         games = games.map(games => {
@@ -24,6 +24,5 @@ export const disconnectRoom = (socket, games) => {
         return games
       })
     }
-    console.log(games), 'disconnect';
     return games
 }

@@ -21,7 +21,7 @@ const Stage = ({ stage }) => {
 }
 
 
-export const StagePreview = ({ stage, color }) => {
+export const StagePreview = ({ stage }) => {
 
     const TETROMINOS = {
         0: { color: "255, 255, 255" },
@@ -34,7 +34,7 @@ export const StagePreview = ({ stage, color }) => {
         Z: { color: "227, 78, 78" }
       };
 
-    return stage.map(row => row.map((cell, x) =>
+    return stage.map(row => row.map((cell, x) => 
         <Cell key={x} type={cell[0]} color={TETROMINOS[cell[0]].color}/>
     ))
 }

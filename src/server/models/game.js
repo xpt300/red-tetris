@@ -8,16 +8,4 @@ export class Game {
         this.player = []
         this.pieces = []
     }
-
-    changeLevel (level) {
-        this.level = level
-    }
-
-    createRoomWithName (player) {
-        this.player.push(player)
-    }
-
-    leaveRoom (player) {
-        this.room.filter(player => player != player)
-    }
 }

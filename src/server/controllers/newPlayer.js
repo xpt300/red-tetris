@@ -20,7 +20,9 @@ export const newPlayer = (socket, games) => {
       const player = new Player(socket.name, socket.id)
       socket.player = player
       games = games.map(game => {
-        if (game.room == socket.addRoom) {
+        if (game.player.length >= 4) {
+          socket.emit('text', {text: "The room is full please change...", name: socket.name})  
+        } else if (game.room == socket.addRoom) {
           if (game.start) {
             socket.emit('text', {text: "The room is start please change...", name: socket.name})  
           } else {
