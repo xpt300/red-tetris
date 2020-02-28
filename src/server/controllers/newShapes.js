@@ -21,6 +21,5 @@ export const newShapes = (socket, io, games) => {
         }
         return game
     })
-    console.log(games, 'newShapes');
     return games
 }

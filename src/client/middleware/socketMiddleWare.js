@@ -23,11 +23,14 @@ const socketMiddleWare = () => {
                 action.object = object
                 return next(action)
             })
+        } else if (action.type === 'RESTART') {
+            action.socket.emit('action', {type : 'restart'})
+            action.socket.on('restart', (object) => {
+                action.object = object
+                return next(action)
+            })
         } else if (action.type === 'LEVEL') {
             action.socket.emit('action', {type : 'level', ope : action.ope})
-        } else if (action.type === 'MAJBOARD') {
-            action.socket.emit('action', {type: 'board', board : action.stage})
-            return next(action)
         } else {
             return next(action)
         }

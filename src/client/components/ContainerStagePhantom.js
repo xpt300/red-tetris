@@ -9,7 +9,7 @@ const container = {
     alignItems: 'stretch',
     flexWrap: 'wrap',
     width: '50%',
-    height: '100%',
+    height: '80%',
     backgroundColor: 'grey',
 }
 

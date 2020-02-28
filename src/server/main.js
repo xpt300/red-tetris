@@ -2,7 +2,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 
-import { disconnectRoom, newPlayer, startGame, newShapes, score, level, endGame, board } from './controllers/index'
+import { disconnectRoom, newPlayer, startGame, newShapes, score, level, endGame, board, restart } from './controllers/index'
 
 let games = []
 
@@ -58,6 +58,9 @@ io.on('connection', function (socket) {
           break;
         case 'board' : 
           games = board(socket, action.board, games, io)
+          break;
+        case 'restart' : 
+          games = restart(socket, io, games)
           break;
       }
     })

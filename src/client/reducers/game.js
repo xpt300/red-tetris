@@ -1,4 +1,4 @@
-import { WIN, START, ENDGAME, ROOM, DELETESHAPE, NEWTEXT, NEWSHAPES, SCORE, NEWLEVEL, BOARD } from '../actions/game'
+import { WIN, START, ENDGAME, ROOM, DELETESHAPE, NEWTEXT, NEWSHAPES, SCORE, NEWLEVEL, BOARD, RESTART } from '../actions/game'
 
 const initialState = {
   start: false,
@@ -11,12 +11,12 @@ const initialState = {
   boardAdversary: [],
   shapes: [],
   text: '',
+  textEnd: '',
   name: '',
   numberPlayer: 0
 }
 
 const reducer = (state = initialState , action) => {
-  console.log(action, 'action');
   switch(action.type){
     case START:
       return {
@@ -24,6 +24,23 @@ const reducer = (state = initialState , action) => {
         start: true,
         shapes: action.object.shapes,
         numberPlayer: action.object.player
+      }
+    case RESTART:
+      return {
+        ...state,
+        start: true,
+        win: false,
+        end: false,
+        score: 0,
+        level: action.object.level,
+        delay: state.level === 5 ? 100 : 1000 / (state.level + 1) + 200,
+        scoreAdversary: [],
+        boardAdversary: [],
+        shapes: action.object.shapes,
+        text: '',
+        textEnd: '',
+        name: '',
+        numberPlayer: action.object.numberPlayer,
       }
     case WIN:
       return { 
@@ -34,14 +51,15 @@ const reducer = (state = initialState , action) => {
         return {
           ...state,
           end: true,
-          scoreAdversary: action.score
+          scoreAdversary: action.object.score ? action.object.score : state.scoreAdversary,
+          textEnd: action.object.text
         }
     case NEWSHAPES:
         return {
           ...state,
           shapes: state.shapes.concat(action.newShapes.shapes),
           start: action.newShapes.start ? action.newShapes.start : state.start,
-          numberPlayer: action.newShapes.player
+          numberPlayer: action.newShapes.player ? action.newShapes.player : state.numberPlayer
         }
     case DELETESHAPE:
         return {
@@ -71,34 +89,9 @@ const reducer = (state = initialState , action) => {
         delay : state.level === 5 ? 100 : 1000 / (state.level + 1) + 200
       }
     case BOARD:
-      if (state.boardAdversary[0]) {
-        const filter = state.boardAdversary.filter(board => board.name === action.board.name)
-        if (filter[0]) {
-          console.log(filter, 'filter ok');
-          const board = state.boardAdversary.map(board => {
-            if (board.name === action.board.name) {
-              board.board = action.board.board
-              return board
-            }
-            return board
-          })
-          console.log(board, 'board');
-          return {
-            ...state,
-            boardAdversary: board,
-          }
-        } else {
-          console.log('ici', action.board, state.boardAdversary);
-          return {
-            ...state,
-            boardAdversary : state.boardAdversary.push(action.board)
-          }
-        }
-      } else {
-        return {
-          ...state,
-          boardAdversary : [action.board]
-        }
+      return {
+        ...state,
+        boardAdversary : action.board
       }
     default:
       return state

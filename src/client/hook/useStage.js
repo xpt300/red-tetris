@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { createStage } from '../gameHelper'
 import { useStore, useDispatch } from 'react-redux'
 
-export const useStage = (player, resetPlayer, socket) => {
+export const useStage = (player, resetPlayer) => {
     const store = useStore()
     const dispatch = useDispatch()
     const [stage, setStage] = useState(createStage());
@@ -39,7 +39,6 @@ export const useStage = (player, resetPlayer, socket) => {
         });
         // Then check if we got some score if collided
         if (player.collided) {
-          dispatch({ type: 'MAJBOARD', socket, stage})
           resetPlayer(store.getState().game.shapes[0].shape);
           return sweepRows(newStage);
         }

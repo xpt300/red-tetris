@@ -9,8 +9,8 @@ const StyledCell = styled.div`
     background: rgba(${props => props.color});
 `
 
-const Cell = ({ type, color }) => {
+const CellPhantom = ({ type, color }) => {
   return (<StyledCell type={type} color={color}></StyledCell>)
 }
 
-export default React.memo(Cell)
+export default React.memo(CellPhantom)

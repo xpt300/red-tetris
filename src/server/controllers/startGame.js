@@ -1,5 +1,3 @@
-import { Piece } from '../models'
-
 export const startGame = (socket, io, games) => {
     games = games.map(game => {
       if (game.room == socket.addRoom) {
@@ -14,6 +12,5 @@ export const startGame = (socket, io, games) => {
       }
       return game
     })
-    console.log(games, 'startGame');
     return games
 }

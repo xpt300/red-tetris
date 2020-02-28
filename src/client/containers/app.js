@@ -7,6 +7,7 @@ import ContainerText from '../components/ContainerText'
 import styled from 'styled-components'
 
 import Tetris from "../components/Tetris"
+import { restart } from '../../server/controllers'
 
 const Container = styled.div`
   display: flex;
@@ -14,16 +15,24 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
-  height:100vh;
+  height:100%;
 `
 
 const Text = styled.h1`
-  position: absolute;
   font-family: 'Press Start 2P';
   color: #FF0000;
   left: 0;
   right: 0;
   text-align: center;
+`
+
+const TextEnd = styled.h3`
+    position: 'absolute';
+    font-family: Montserrat;
+    text-align: center;
+    margin: 20px;
+    left: 0;
+    right: 0;
 `
 
 const App = ({socket}) => {
@@ -50,14 +59,23 @@ const App = ({socket}) => {
     dispatch({ type: 'DELETESHAPE', socket})
   }
 
+  const handleBoard = (stage) => {
+    socket.emit('action', {type: 'board', board : stage})
+  }
+
   useEffect(() => {
     function handlekeyupEvent (event) {
       let state = store.getState()
-      if (!state.game.start) {
+      if (!state.game.start || state.game.end) {
         switch (event.keyCode) {
-          case 13 : 
-            dispatch({ type: 'START', socket})
+          case 13 : {
+            if (state.game.end) {
+              dispatch({ type: 'RESTART', socket})
+            } else if (!state.game.start) {
+              dispatch({ type: 'START', socket})
+            }
             break;
+          }
           case 107 :
               if (state.game.level < 5) handleLevel('+')
               break;
@@ -81,25 +99,27 @@ const App = ({socket}) => {
     socket.on('shapes', (newShapes) => dispatch({ type: 'NEWSHAPES', newShapes}))
     socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
     socket.on('level', (level) => dispatch({ type: 'NEWLEVEL', level}))
-    socket.on('end', (score) => dispatch({ type: 'ENDGAME', score}))
+    socket.on('end', (object) => dispatch({ type: 'ENDGAME', object}))
     socket.on('board', (board) => dispatch({ type: 'BOARD', board}))
   }, [])
 
-  return console.log(store.getState().game) || (
+  return (
     <Fragment>
         <Text>RED TETRIS</Text>
         <Container>
           <AsideLeft {...store.getState().game}/>
-          {game.start && game.shapes ? 
+          {game.start && game.shapes ?
               <Tetris
                 endGame={endGame}
                 newShapes={newShapes}
                 handleScore={handleScore}
                 socket={socket}
-                store={store.getState().game}/> 
+                handleBoard={handleBoard}
+                store={store.getState().game}/>
                : <ContainerText text={game.text} />}
           <AsideRight {...store.getState().game}/>
         </Container>
+        {game.textEnd ? <TextEnd>{game.textEnd}</TextEnd> : null}
     </Fragment>
   )
 }

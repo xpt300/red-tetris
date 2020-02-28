@@ -34,6 +34,5 @@ export const newPlayer = (socket, games) => {
         return game
       })
     }
-    console.log(games, 'Newplayer');
     return games
 }

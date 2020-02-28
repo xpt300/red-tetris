@@ -1,17 +1,20 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
+import styled from 'styled-components'
 import useInterval from '../hook/useInterval'
 import GameOver from './GameOver'
 
 import { createStage, checkCollision } from '../gameHelper'
 import Stage from './Stage';
 
+import { usePrevious } from '../hook/usePrevious'
 import { usePlayer } from '../hook/usePlayer'
 import { useStage } from '../hook/useStage'
 import { useGameStatus } from '../hook/useGameStatus'
 
 const containerTetris = {
   display: "flex",
+  position: 'relative',
   alignItems: 'stretch',
   flexWrap: 'wrap',
   alignContent: 'center',
@@ -19,11 +22,12 @@ const containerTetris = {
   height: '80vh',
 }
 
-const Tetris = ({ endGame, newShapes, store, handleScore, socket }) => {
+const Tetris = ({ endGame, newShapes, store, handleScore, handleBoard, resetStage }) => {
   const [delay, setDelay] = useState(store.delay)
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer()
-  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer, socket)
+  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer)
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared)
+  const prev = usePrevious(store)
   
   // useInterval(() => {
   //   drop()
@@ -62,12 +66,21 @@ const Tetris = ({ endGame, newShapes, store, handleScore, socket }) => {
       document.removeEventListener('keydown', handlekeydownEvent)
       document.removeEventListener('keyup', handlekeyupEvent)
     }
-  }, [player])
+  }, [player, store.end])
 
   useEffect(() => {
     if (score > 0) handleScore(score)
   }, [score]);
 
+  useEffect(() => {
+    if (prev && prev.end && prev.start && store.start && !store.end) {
+      setStage(createStage());
+      setDelay(store.delay);
+      resetPlayer(store.shapes[0].shape);
+      setScore(0);
+      setRows(0);
+    }
+  }, [store.start, store.end]);
 
   const movePlayer = dir => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
@@ -86,6 +99,7 @@ const Tetris = ({ endGame, newShapes, store, handleScore, socket }) => {
         endGame()
         setDelay(null)
       }
+      handleBoard(stage)
       updatePlayerPos({ x: 0, y: 0, collided: true})
       newShapes()
     }
@@ -100,8 +114,9 @@ const Tetris = ({ endGame, newShapes, store, handleScore, socket }) => {
     <Fragment>
       <div style={containerTetris}>
         <Stage stage={stage}/>
+        {store.end ? <GameOver text="Perdu" /> : null}
       </div>
-      {store.end ? <GameOver text="Perdu" /> : null}
+     
     </Fragment>
   )
 }

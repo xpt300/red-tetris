@@ -9,8 +9,8 @@ const TextContainer = styled.div`
     align-items: center;
     align-content: center;
     justify-content: center;
-    width: 40vh;
-    height: 50vh;
+    width: 100%;
+    height: 70%;
     flex-direction: column;
 `
 
@@ -27,11 +27,28 @@ const Aside = styled.div`
     flex-direction: column;
     flex: 1;
     width: 100%;
+    height: 100%;
 `
 
-const TextInput = styled.h2`
+const TextInput = styled.h1`
     font-family: Montserrat;
-    color: ${props => props.color};
+`
+const Score = styled.div`
+    display: flex;
+    width: 100%;
+    height: 30%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+`
+
+const ScoreText = styled.div`
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 `
 
 const AsideRight = ({scoreAdversary, boardAdversary, numberPlayer, name}) => {
@@ -45,12 +62,15 @@ const AsideRight = ({scoreAdversary, boardAdversary, numberPlayer, name}) => {
             </TextContainer>
         </Fragment>
           : null}
-        
+        <Score>
             {scoreAdversary && 
             <Text>SCORE FINAL</Text> && 
-            scoreAdversary.map(player => 
-                <TextInput color='#FF3333'>{player.name}</TextInput>        
+            scoreAdversary.map((player, index) => 
+                <ScoreText key={index}>
+                    <TextInput>{index + 1} - {player.name} - {player.score} points</TextInput>
+                </ScoreText>
             )}
+        </Score>
     </Aside>
     )
 }

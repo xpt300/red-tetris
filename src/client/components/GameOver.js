@@ -1,13 +1,12 @@
 import React from 'react'
 
-// const gameOver = require('../util/images/game-over.png')
-// const success = require('../util/images/success.png')
-
 const container = {
     position: "absolute",
     margin: 'auto',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height: '100%',
+    alignItems: 'center'
 }
 
 const image = {
@@ -19,7 +18,7 @@ const GameOver = ( {win} ) => {
         <span style={container}>
             <img
                 style={image}
-                src='/src/client/util/images/game-over.png' 
+                src={win ? '/src/client/util/images/success.png' : '/src/client/util/images/game-over.png'}
                 alt="perdu"
                 />
         </span>

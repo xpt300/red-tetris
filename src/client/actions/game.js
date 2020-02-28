@@ -9,6 +9,7 @@ export const SCORE = 'SCORE'
 export const NEWLEVEL = 'NEWLEVEL'
 export const NEWSHAPES = 'NEWSHAPES'
 export const BOARD = 'BOARD'
+export const RESTART = 'RESTART'
 
 export const game = (game) => {
   return {

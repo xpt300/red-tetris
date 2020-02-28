@@ -2,7 +2,7 @@ import React from 'react';
 
 import CellPhantom from './CellPhantom';
 
-const Stage = ({ stage }) => {
+const StagePhantom = ({ stage }) => {
 
     const TETROMINOS = {
         0: { color: "128, 128, 128" },
@@ -22,4 +22,4 @@ const Stage = ({ stage }) => {
 
 
 
-export default Stage
+export default StagePhantom

@@ -3,6 +3,7 @@ export class Player {
         this.name = name
         this.socketId = socketId
         this.score = 0
+        this.end = false
         this.board = []
     }
 }
