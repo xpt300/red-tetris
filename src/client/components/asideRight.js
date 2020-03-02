@@ -9,9 +9,10 @@ const TextContainer = styled.div`
     align-items: center;
     align-content: center;
     justify-content: center;
+    flex-wrap: 'wrap';
     width: 100%;
     height: 70%;
-    flex-direction: column;
+
 `
 
 const Text = styled.h1`
@@ -27,7 +28,7 @@ const Aside = styled.div`
     flex-direction: column;
     flex: 1;
     width: 100%;
-    height: 100%;
+    height: 80vh;
 `
 
 const TextInput = styled.h1`
@@ -52,7 +53,7 @@ const ScoreText = styled.div`
 `
 
 const AsideRight = ({scoreAdversary, boardAdversary, numberPlayer, name}) => {
-    return (
+    return console.log(boardAdversary, numberPlayer) || (
     <Aside>
         {numberPlayer > 1 ?
         <Fragment>

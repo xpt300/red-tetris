@@ -13,13 +13,13 @@ const image = {
     width: '50%'
 }
 
-const GameOver = ( {win} ) => {
+const GameOver = ({win}) => {
     return (
         <span style={container}>
             <img
                 style={image}
                 src={win ? '/src/client/util/images/success.png' : '/src/client/util/images/game-over.png'}
-                alt="perdu"
+                alt={win ? "gagne" : "perdu"}
                 />
         </span>
     )

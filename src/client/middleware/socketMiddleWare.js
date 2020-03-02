@@ -1,5 +1,6 @@
 const socketMiddleWare = () => {
     return next => (action) => {
+        console.log(action, 'socket middelware');
         if (action.type === 'ROOM') {
             action.socket.emit('newPlayer', {type : 'room'})
             action.socket.on('text', (obj) => {
@@ -12,8 +13,6 @@ const socketMiddleWare = () => {
                 action.object = newShapes
                 return next(action)
             })
-        } else if (action.type === 'SHAPES') {
-            action.socket.emit('action', {type : 'shapes', board: action.board})
         } else if (action.type === 'END') {
             action.socket.emit('end')
             return
@@ -25,12 +24,11 @@ const socketMiddleWare = () => {
             })
         } else if (action.type === 'RESTART') {
             action.socket.emit('action', {type : 'restart'})
-            action.socket.on('restart', (object) => {
-                action.object = object
-                return next(action)
-            })
         } else if (action.type === 'LEVEL') {
             action.socket.emit('action', {type : 'level', ope : action.ope})
+        } else if (action.type === 'DELETESHAPE') {
+            action.socket.emit('action', {type : 'shapes', board: action.board, length: action.length})
+            return next(action)
         } else {
             return next(action)
         }

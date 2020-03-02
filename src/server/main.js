@@ -48,16 +48,13 @@ io.on('connection', function (socket) {
           games = startGame(socket, io, games)
           break;
         case 'shapes' : 
-          games = newShapes(socket, io, games)
+          games = newShapes(socket, io, games, action.board, action.length)
           break;
         case 'score' : 
           games = score(socket, action.score, games)
           break;
         case 'level' : 
           games = level(socket, action.ope, games, io)
-          break;
-        case 'board' : 
-          games = board(socket, action.board, games, io)
           break;
         case 'restart' : 
           games = restart(socket, io, games)

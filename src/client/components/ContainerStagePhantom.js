@@ -10,6 +10,7 @@ const container = {
     flexWrap: 'wrap',
     width: '50%',
     height: '80%',
+    margin: '10px',
     backgroundColor: 'grey',
 }
 
@@ -22,18 +23,18 @@ const TextInput = styled.h2`
 
 const ContainerStagePhantom = ({boardAdversary, name}) => {
     return (
-        <div style={container}>
+        <Fragment>
             {boardAdversary ? boardAdversary.map((adversary, index) => {
                 if (adversary.name !== name) {
                     return (
-                    <Fragment key={index}>
+                    <div style={container} key={index}>
                         <StagePhantom stage={adversary.board}/>
                         <TextInput color='#FF3333'>{adversary.name}</TextInput>
-                    </Fragment>
+                    </div>
                     )
                 } else return
             }) : null}
-        </div>
+        </Fragment>
     )
 }
 

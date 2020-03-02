@@ -52,15 +52,8 @@ const App = ({socket}) => {
     dispatch({ type : 'LEVEL', ope, socket})
   }
 
-  const newShapes = () => {
-    if (store.getState().game.shapes.length <= 6) {
-      dispatch({ type: 'SHAPES', socket})
-    }
-    dispatch({ type: 'DELETESHAPE', socket})
-  }
-
-  const handleBoard = (stage) => {
-    socket.emit('action', {type: 'board', board : stage})
+  const newShapes = (stage) => {
+    dispatch({ type: 'DELETESHAPE', socket, length: store.getState().game.shapes.length, board: stage})
   }
 
   useEffect(() => {
@@ -95,12 +88,13 @@ const App = ({socket}) => {
     if (!game.text) {
       dispatch({ type: 'ROOM', socket})
     }
-    socket.on('start', (newShapes) => dispatch({ type: 'NEWSHAPES', newShapes}))
     socket.on('shapes', (newShapes) => dispatch({ type: 'NEWSHAPES', newShapes}))
+    socket.on('start', (newShapes) => dispatch({ type: 'NEWSHAPES', newShapes}))
     socket.on('newText', (text) => dispatch({ type: 'NEWTEXT', text}))
     socket.on('level', (level) => dispatch({ type: 'NEWLEVEL', level}))
     socket.on('end', (object) => dispatch({ type: 'ENDGAME', object}))
     socket.on('board', (board) => dispatch({ type: 'BOARD', board}))
+    socket.on('restart', (object) => dispatch({ type: 'restart', object}))
   }, [])
 
   return (
@@ -114,7 +108,6 @@ const App = ({socket}) => {
                 newShapes={newShapes}
                 handleScore={handleScore}
                 socket={socket}
-                handleBoard={handleBoard}
                 store={store.getState().game}/>
                : <ContainerText text={game.text} />}
           <AsideRight {...store.getState().game}/>

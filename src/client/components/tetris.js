@@ -22,10 +22,10 @@ const containerTetris = {
   height: '80vh',
 }
 
-const Tetris = ({ endGame, newShapes, store, handleScore, handleBoard, resetStage }) => {
+const Tetris = ({ endGame, newShapes, store, handleScore, win }) => {
   const [delay, setDelay] = useState(store.delay)
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer()
-  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer)
+  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer, newShapes)
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared)
   const prev = usePrevious(store)
   
@@ -89,19 +89,16 @@ const Tetris = ({ endGame, newShapes, store, handleScore, handleBoard, resetStag
   };
 
   const drop = () => {
-    if (rows > (level + 1) * 10) {
-      setLevel(prev => prev + 1)
-    }
     if (!checkCollision(player, stage, { x: 0, y: 1})) {
       updatePlayerPos({ x: 0, y: 1, collided: false})
     } else {
       if (player.pos.y < 1) {
         endGame()
         setDelay(null)
+        return
       }
-      handleBoard(stage)
       updatePlayerPos({ x: 0, y: 0, collided: true})
-      newShapes()
+      // newShapes(stage)
     }
   }
 
@@ -114,7 +111,7 @@ const Tetris = ({ endGame, newShapes, store, handleScore, handleBoard, resetStag
     <Fragment>
       <div style={containerTetris}>
         <Stage stage={stage}/>
-        {store.end ? <GameOver text="Perdu" /> : null}
+        {store.end ? <GameOver win={store.win}/> : null}
       </div>
      
     </Fragment>

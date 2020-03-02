@@ -4,15 +4,15 @@ export const disconnectRoom = (socket, games) => {
       if (test[0].player.length == 1) {
         games = games.filter(games => games.room != socket.addRoom)
       } else {
-        games = games.map(games => {
-          if (games.master['socketId'] == socket.id) {
-            games.master = games.player[0]
-            games.player = games.player.slice(1, games.player.length)
-            socket.broadcast.to(games.master['socketId']).emit('newText', {text: "You're Master, Press <Enter> for START"})
+        games = games.map(game => {
+          if (game.master['socketId'] == socket.id) {
+            game.master = game.player[1]
+            game.player = game.player.slice(1, game.player.length)
+            socket.broadcast.to(game.master['socketId']).emit('newText', {text: "You're Master, Press <Enter> for START"})
             socket.emit('text', {text: "Waiting to game start...", name: socket.name})
-            socket.leave(games.room)
+            socket.leave(game.room)
           }
-          return games
+          return game
         })
       }
     } else if (games) {

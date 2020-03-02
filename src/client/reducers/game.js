@@ -17,6 +17,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState , action) => {
+  console.log(action, 'action');
   switch(action.type){
     case START:
       return {
@@ -42,30 +43,27 @@ const reducer = (state = initialState , action) => {
         name: '',
         numberPlayer: action.object.numberPlayer,
       }
-    case WIN:
-      return { 
-        ...state,
-        win: true
-      }
     case ENDGAME:
         return {
           ...state,
           end: true,
+          win: action.object.win ? action.object.win : false,
           scoreAdversary: action.object.score ? action.object.score : state.scoreAdversary,
           textEnd: action.object.text
         }
-    case NEWSHAPES:
-        return {
-          ...state,
-          shapes: state.shapes.concat(action.newShapes.shapes),
-          start: action.newShapes.start ? action.newShapes.start : state.start,
-          numberPlayer: action.newShapes.player ? action.newShapes.player : state.numberPlayer
-        }
+    case NEWSHAPES: 
+      return {
+        ...state,
+        shapes: action.newShapes.shapes ? state.shapes.concat(action.newShapes.shapes) : state.shapes,
+        start: action.newShapes.start ? action.newShapes.start : state.start,
+        boardAdversary : action.newShapes.board,
+        numberPlayer: action.newShapes.player ? action.newShapes.player : state.numberPlayer
+      }
     case DELETESHAPE:
-        return {
-          ...state,
-          shapes: state.shapes.slice(1)
-        }
+      return {
+        ...state,
+        shapes: state.shapes.slice(1),
+      }
     case ROOM:
       return {
         ...state,
@@ -87,11 +85,6 @@ const reducer = (state = initialState , action) => {
         ...state,
         level: action.level,
         delay : state.level === 5 ? 100 : 1000 / (state.level + 1) + 200
-      }
-    case BOARD:
-      return {
-        ...state,
-        boardAdversary : action.board
       }
     default:
       return state
