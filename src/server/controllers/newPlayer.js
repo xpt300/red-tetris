@@ -20,19 +20,22 @@ export const newPlayer = (socket, games) => {
       const player = new Player(socket.name, socket.id)
       socket.player = player
       games = games.map(game => {
-        if (game.player.length >= 4) {
-          socket.emit('text', {text: "The room is full please change...", name: socket.name})  
-        } else if (game.room == socket.addRoom) {
-          if (game.start) {
-            socket.emit('text', {text: "The room is start please change...", name: socket.name})  
-          } else {
+      if (game.room == socket.addRoom) {
+        if (socket.name == null) socket.emit('text', {text: "After name room /#00 please choise [your_name]...", name: socket.name})
+        else {
+          const name = game.player.filter(player => player.name === socket.name)
+          if (name[0]) socket.emit('text', {text: "Please change your name because another user has the same...", name: socket.name})  
+          else if (game.player.length >= 4) socket.emit('text', {text: "The room is full please change...", name: socket.name})  
+          else if (game.start) socket.emit('text', {text: "The room is start please change...", name: socket.name})  
+          else {
             game.player.push(player)
             socket.emit('text', {text: "Waiting to game start...", name: socket.name})
             socket.join(game.room)
           }
         }
-        return game
-      })
-    }
-    return games
+      }
+      return game
+    })
+  }
+  return games
 }

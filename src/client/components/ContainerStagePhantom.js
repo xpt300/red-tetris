@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react'
 
 import styled from 'styled-components'
-
+import GameOver from './GameOver'
 import StagePhantom from './StagePhantom';
 
 const container = {
     display: "flex",
     alignItems: 'stretch',
     flexWrap: 'wrap',
-    width: '50%',
     height: '80%',
+    position: 'relative',
     margin: '10px',
+    maxWidth: '13.5vh',
     backgroundColor: 'grey',
+    flex: '1'
 }
 
 const TextInput = styled.h2`
@@ -29,6 +31,7 @@ const ContainerStagePhantom = ({boardAdversary, name}) => {
                     return (
                     <div style={container} key={index}>
                         <StagePhantom stage={adversary.board}/>
+                        {adversary.end ? <GameOver win={false}/> : null}
                         <TextInput color='#FF3333'>{adversary.name}</TextInput>
                     </div>
                     )

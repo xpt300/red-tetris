@@ -9,10 +9,10 @@ const TextContainer = styled.div`
     align-items: center;
     align-content: center;
     justify-content: center;
-    flex-wrap: 'wrap';
+    flex-wrap: wrap;
+    flex: 1;
     width: 100%;
-    height: 70%;
-
+    padding: 10px 0px;
 `
 
 const Text = styled.h1`
@@ -31,17 +31,18 @@ const Aside = styled.div`
     height: 80vh;
 `
 
-const TextInput = styled.h1`
+const TextInput = styled.h2`
     font-family: Montserrat;
 `
 const Score = styled.div`
     display: flex;
     width: 100%;
-    height: 30%;
     align-items: center;
     align-content: center;
     justify-content: center;
     flex-direction: column;
+    flex: 1;
+    padding: 10px 0px;
 `
 
 const ScoreText = styled.div`
@@ -53,7 +54,7 @@ const ScoreText = styled.div`
 `
 
 const AsideRight = ({scoreAdversary, boardAdversary, numberPlayer, name}) => {
-    return console.log(boardAdversary, numberPlayer) || (
+    return (
     <Aside>
         {numberPlayer > 1 ?
         <Fragment>

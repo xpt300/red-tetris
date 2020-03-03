@@ -12,7 +12,8 @@ const Stage = ({ stage }) => {
         O: { color: "223, 217, 36" },
         S: { color: "48, 211, 56" },
         T: { color: "132, 61, 198" },
-        Z: { color: "227, 78, 78" }
+        Z: { color: "227, 78, 78" },
+        W: { color: "128, 128, 128"}
       };
 
     return stage.map(row => row.map((cell, x) =>
@@ -31,7 +32,8 @@ export const StagePreview = ({ stage }) => {
         O: { color: "223, 217, 36" },
         S: { color: "48, 211, 56" },
         T: { color: "132, 61, 198" },
-        Z: { color: "227, 78, 78" }
+        Z: { color: "227, 78, 78" },
+        W: { color: "128, 128, 128"}
       };
 
     return stage.map(row => row.map((cell, x) => 

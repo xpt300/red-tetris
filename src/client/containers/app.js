@@ -52,8 +52,8 @@ const App = ({socket}) => {
     dispatch({ type : 'LEVEL', ope, socket})
   }
 
-  const newShapes = (stage) => {
-    dispatch({ type: 'DELETESHAPE', socket, length: store.getState().game.shapes.length, board: stage})
+  const newShapes = (stage, line) => {
+    dispatch({ type: 'DELETESHAPE', socket, length: store.getState().game.shapes.length, board: stage, fullLine: line})
   }
 
   useEffect(() => {

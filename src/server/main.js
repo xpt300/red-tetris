@@ -30,7 +30,7 @@ io.on('connection', function (socket) {
     if (query.room !== '') {
       const arrayQuery = query.room.split('[')
       socket.addRoom = arrayQuery[0]
-      socket.name = arrayQuery[1].substr(0, arrayQuery[1].length - 1)
+      socket.name = arrayQuery[1] ? arrayQuery[1].substr(0, arrayQuery[1].length - 1) : null
       console.log('user join ' + socket.id, 'avec le nom : ' + socket.name + ' dans la room ' + socket.addRoom)
     }
     socket.on('newPlayer', () => {
@@ -48,7 +48,7 @@ io.on('connection', function (socket) {
           games = startGame(socket, io, games)
           break;
         case 'shapes' : 
-          games = newShapes(socket, io, games, action.board, action.length)
+          games = newShapes(socket, io, games, action.board, action.length, action.fullLine)
           break;
         case 'score' : 
           games = score(socket, action.score, games)

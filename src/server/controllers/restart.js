@@ -19,6 +19,5 @@ export const restart = (socket, io, games) => {
       }
       return game
     })
-    console.log(games, 'restartGame');
     return games
 }

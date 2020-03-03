@@ -12,7 +12,8 @@ const StagePhantom = ({ stage }) => {
         O: { color: "223, 217, 36" },
         S: { color: "48, 211, 56" },
         T: { color: "132, 61, 198" },
-        Z: { color: "227, 78, 78" }
+        Z: { color: "227, 78, 78" },
+        W: { color: "0, 0, 0"}
       };
 
     return stage.map(row => row.map((cell, x) =>

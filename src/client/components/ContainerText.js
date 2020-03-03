@@ -13,6 +13,8 @@ const container = {
 
 const styleText = {
     color: 'white',
+    margin: '20px',
+    textAlign: 'center'
 }
 
 const ContainerText = ({text}) => {

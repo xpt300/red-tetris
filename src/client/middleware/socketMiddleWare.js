@@ -27,7 +27,7 @@ const socketMiddleWare = () => {
         } else if (action.type === 'LEVEL') {
             action.socket.emit('action', {type : 'level', ope : action.ope})
         } else if (action.type === 'DELETESHAPE') {
-            action.socket.emit('action', {type : 'shapes', board: action.board, length: action.length})
+            action.socket.emit('action', {type : 'shapes', board: action.board, length: action.length, fullLine: action.fullLine})
             return next(action)
         } else {
             return next(action)

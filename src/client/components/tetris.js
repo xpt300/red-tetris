@@ -1,6 +1,5 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
-import styled from 'styled-components'
 import useInterval from '../hook/useInterval'
 import GameOver from './GameOver'
 
@@ -22,16 +21,16 @@ const containerTetris = {
   height: '80vh',
 }
 
-const Tetris = ({ endGame, newShapes, store, handleScore, win }) => {
+const Tetris = ({ endGame, newShapes, store, handleScore }) => {
   const [delay, setDelay] = useState(store.delay)
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer()
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer, newShapes)
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared)
   const prev = usePrevious(store)
   
-  // useInterval(() => {
-  //   drop()
-  // }, store.end ? null : delay);
+  useInterval(() => {
+    drop()
+  }, store.end ? null : delay);
 
   useEffect(() => {
     const handlekeydownEvent = ({ keyCode }) => {
@@ -43,11 +42,16 @@ const Tetris = ({ endGame, newShapes, store, handleScore, win }) => {
           case 39 : 
             movePlayer(1)
             break;
-          case 40 : 
-            dropPlayer()
+          case 32 :
+              dropPlayer()
             break;
-          case 32 : 
+          case 38 : 
             playerRotate(stage, 1)
+            break;
+          case 40: 
+            let i = 0
+            while (!checkCollision(player, stage, { x: 0, y: i})) i++
+            if (i > 0) updatePlayerPos({ x: 0, y: i - 1, collided: true})
             break;
         }
       }
@@ -98,7 +102,6 @@ const Tetris = ({ endGame, newShapes, store, handleScore, win }) => {
         return
       }
       updatePlayerPos({ x: 0, y: 0, collided: true})
-      // newShapes(stage)
     }
   }
 
