@@ -1,16 +1,26 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useStore } from 'react-redux'
 
 import { WIDTH, checkCollision } from '../gameHelper'
 
 export const usePlayer = () => {
     const store = useStore()
+    const shape = store.getState().game.shapes[0].shape
     const [player, setPlayer] = useState({
       pos: { x: WIDTH / 2 - 2, y: 0 },
-      tetromino: store.getState().game.shapes[0].shape,
+      tetromino: shape,
       collided: false,
     });
   
+    useEffect(() => {
+      console.log('lsss');
+      setPlayer({
+        pos: { x: WIDTH / 2 - 2, y: 0 },
+        tetromino: shape,
+        collided: false,
+      })
+    }, [shape]);
+
     function rotate(matrix, dir) {
       // Make the rows to become cols (transpose)
       const mtrx = matrix.map((_, index) => matrix.map(column => column[index]));

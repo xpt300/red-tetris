@@ -26,7 +26,7 @@ export const newPlayer = (socket, games) => {
           const name = game.player.filter(player => player.name === socket.name)
           if (name[0]) socket.emit('text', {text: "Please change your name because another user has the same...", name: socket.name})  
           else if (game.player.length >= 4) socket.emit('text', {text: "The room is full please change...", name: socket.name})  
-          else if (game.start) socket.emit('text', {text: "The room is start please change...", name: socket.name})  
+          else if (game.start && !game.end) socket.emit('text', {text: "The room is running please change...", name: socket.name})  
           else {
             game.player.push(player)
             socket.emit('text', {text: "Waiting to game start...", name: socket.name})

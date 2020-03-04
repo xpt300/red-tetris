@@ -10,8 +10,10 @@ export const useStage = (player, resetPlayer, newShapes) => {
   
     useEffect(() => {
       const addLine = prev => {
-        prev.shift()
-        prev.push(new Array(prev[0].length).fill(['W', 'merged']))
+        for (let i = 0; i < fullLine; i++) {
+          prev.shift()
+          prev.push(new Array(prev[0].length).fill(['W', 'merged']))
+        }
         return prev
       } 
       if (fullLine > 0 && !store.getState().game.end) setStage(prev => addLine(prev))
@@ -20,10 +22,10 @@ export const useStage = (player, resetPlayer, newShapes) => {
     useEffect(() => {
       setRowsCleared(0);
       const sweepRows = newStage => {
-        let full = false
+        let lineDelete = 0
         const newnewStage = newStage.reduce((ack, row) => {
           if (row.findIndex(cell => cell[0] === 0) === -1 && row[0][0] !== 'W') {
-            full = true
+            lineDelete += 1
             setRowsCleared(prev => prev + 1);
             ack.unshift(new Array(newStage[0].length).fill([0, 'clear']));
             return ack;
@@ -31,8 +33,8 @@ export const useStage = (player, resetPlayer, newShapes) => {
           ack.push(row);
           return ack;
         }, []);
-        if (!full) newShapes(newnewStage, 0)
-        else newShapes(newnewStage, 1)
+        if (lineDelete > 0) newShapes(newnewStage, lineDelete)
+        else newShapes(newnewStage, 0)
         return newnewStage
       }
   

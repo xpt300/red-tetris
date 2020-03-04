@@ -59,7 +59,7 @@ const Tetris = ({ endGame, newShapes, store, handleScore }) => {
     const handlekeyupEvent = ({ keyCode }) => {
       if (!store.end) {
         switch (keyCode) {
-          case 40 :
+          case 32 :
             setDelay(store.delay)
         }
       }

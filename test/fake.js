@@ -1,9 +1,7 @@
 import chai from "chai"
-import newShapes from '../src/server/models/newShapes'
-import moveShapes from '../src/client/functions/moveShapes'
-import { shapesRandom } from '../src/client/util/shapes'
+import dirtyChai from 'dirty-chai'
 
-const should = chai.should()
+chai.use(dirtyChai)
 
 describe('Shapes function', () => {
   it('New Shapes', () => {

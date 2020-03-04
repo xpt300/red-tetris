@@ -49,7 +49,8 @@ const reducer = (state = initialState , action) => {
           end: true,
           win: action.object.win ? action.object.win : false,
           scoreAdversary: action.object.score ? action.object.score : state.scoreAdversary,
-          textEnd: action.object.text
+          textEnd: action.object.text,
+          numberPlayer: action.object.numberPlayer ? action.object.numberPlayer : state.numberPlayer 
         }
     case NEWSHAPES: 
       return {
@@ -58,7 +59,7 @@ const reducer = (state = initialState , action) => {
         start: action.newShapes.start ? action.newShapes.start : state.start,
         boardAdversary : action.newShapes.board,
         numberPlayer: action.newShapes.player ? action.newShapes.player : state.numberPlayer,
-        lineFull: action.newShapes.fullLine ? state.lineFull + 1 : state.lineFull
+        lineFull: action.newShapes.fullLine ? action.newShapes.fullLine : state.lineFull
       }
     case DELETESHAPE:
       return {

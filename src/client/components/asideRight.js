@@ -67,11 +67,12 @@ const AsideRight = ({scoreAdversary, boardAdversary, numberPlayer, name}) => {
         <Score>
             {scoreAdversary && 
             <Text>SCORE FINAL</Text> && 
+            numberPlayer > 1 ?
             scoreAdversary.map((player, index) => 
                 <ScoreText key={index}>
                     <TextInput>{index + 1} - {player.name} - {player.score} points</TextInput>
                 </ScoreText>
-            )}
+            ) : null}
         </Score>
     </Aside>
     )
