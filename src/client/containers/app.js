@@ -5,9 +5,7 @@ import AsideRight from '../components/AsideRight'
 import AsideLeft from '../components/asideLeft'
 import ContainerText from '../components/ContainerText'
 import styled from 'styled-components'
-
 import Tetris from "../components/Tetris"
-import { restart } from '../../server/controllers'
 
 const Container = styled.div`
   display: flex;

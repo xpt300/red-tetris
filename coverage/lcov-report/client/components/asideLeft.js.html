@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/1</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -82,7 +82,38 @@
 37
 38
 39
-40</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,42 +152,104 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect } from 'react'
 &nbsp;
-import drawShapes from '../functions/drawShapes'
+import styled from 'styled-components'
+import { StagePreview } from './Stage';
 &nbsp;
-const aside = {
-    display: 'flex',
-    alignItems: 'stretch',
-    alignContent: 'center',
-    justifyContent: 'center',
-    flex: '1',
-    width: '100%',
-}
+import { useStagePreview } from '../hook/useStagePreview'
+import { usePlayerPreview } from '../hook/usePlayerPreview'
 &nbsp;
-const text = {
-    position: 'absolute',
-    fontFamily: 'Montserrat'
-}
+const TextContainer = styled.div`
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 40vh;
+    height: 80vh;
+    flex-direction: column;
+`
 &nbsp;
-const containerShapes = {
-    display: "flex",
-    alignItems: 'stretch',
-    flexWrap: 'wrap',
-    alignContent: 'start',
-    width: '40vh',
-    height: '80vh',
-}
+const Text = styled.h1`
+    font-family: Montserrat;
+`
 &nbsp;
-const AsideLeft = <span class="fstat-no" title="function not covered" >(shapes) =&gt; {</span>
-    let htmlShapes = drawShapes(shapes.shapes)
+const Aside = styled.div`
+    display: flex;
+    align-items: stretch;
+    align-content: start;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+`
+&nbsp;
+const ContainerShapes = styled.div`
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: start;
+    width: 100%;
+    height: 15vh;
+`
+const TextInput = styled.h2`
+    font-family: Montserrat;
+    color: ${props =&gt; props.color};
+`
+&nbsp;
+const AsideLeft = <span class="fstat-no" title="function not covered" >({score, level, shapes}) =&gt; {</span>
+    const [player, resetPlayer] = usePlayerPreview()
+    const [stage, setStage, rowsCleared] = useStagePreview(player, resetPlayer)
+&nbsp;
+    useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (shapes[1] &amp;&amp; shapes[1].shape) {</span>
+            resetPlayer(shapes[1].shape)
+        }
+    }, [shapes]);
+&nbsp;
     return (
-        &lt;div style={aside}&gt;
-            &lt;h1 style={text}&gt;NEXT&lt;/h1&gt;
-            &lt;div style={containerShapes}&gt;
-            {htmlShapes}
-            &lt;/div&gt;
-        &lt;/div&gt;
+        &lt;Aside&gt;
+            &lt;TextContainer&gt;
+                &lt;Text&gt;NEXT&lt;/Text&gt;
+                &lt;ContainerShapes&gt;
+                    {shapes &amp;&amp; shapes[1] ? &lt;StagePreview stage={stage}/&gt; : null}
+                &lt;/ContainerShapes&gt;
+                &lt;Text&gt;SCORE&lt;/Text&gt;
+                &lt;TextInput color='#FF3333'&gt;{score}&lt;/TextInput&gt;
+                &lt;Text&gt;LEVEL&lt;/Text&gt;
+                &lt;TextInput color='#5DFF33'&gt;{level}&lt;/TextInput&gt;
+            &lt;/TextContainer&gt;
+        &lt;/Aside&gt;
     )
 }
 &nbsp;
@@ -166,7 +259,7 @@ export default AsideLeft</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 02 2020 15:55:10 GMT+0100 (Central European Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 05 2020 14:21:32 GMT+0100 (Central European Standard Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

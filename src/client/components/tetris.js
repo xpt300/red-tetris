@@ -1,15 +1,15 @@
 import React, {useState, useEffect, Fragment} from 'react'
 
-import useInterval from '../hook/useInterval'
-import GameOver from './GameOver'
-
-import { createStage, checkCollision } from '../gameHelper'
-import Stage from './Stage';
-
 import { usePrevious } from '../hook/usePrevious'
 import { usePlayer } from '../hook/usePlayer'
 import { useStage } from '../hook/useStage'
 import { useGameStatus } from '../hook/useGameStatus'
+
+import useInterval from '../hook/useInterval'
+import GameOver from './GameOver'
+import { createStage, checkCollision } from '../gameHelper'
+import Stage from './Stage';
+
 
 const containerTetris = {
   display: "flex",
