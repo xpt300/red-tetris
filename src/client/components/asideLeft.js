@@ -37,7 +37,7 @@ const ContainerShapes = styled.div`
     width: 100%;
     height: 15vh;
 `
-const TextInput = styled.h2`
+export const TextInput = styled.h2`
     font-family: Montserrat;
     color: ${props => props.color};
 `

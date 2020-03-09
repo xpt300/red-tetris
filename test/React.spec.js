@@ -1,9 +1,10 @@
-import { expect } from "chai"
+import chaiEnzyme from "chai-enzyme"
+import chai from "chai"
 import React from 'react'
 import 'jsdom-global/register'
-// import "jest-enzyme"
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from '../src/client/containers/app'
+import { Tetriminos } from '../src/server/models'
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import createLogger from 'redux-logger'
@@ -13,11 +14,14 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'                                                                                                                                                  
 import reducer from '../src/client/reducers'
 import ContainerText from '../src/client/components/ContainerText'
-import AsideLeft from '../src/client/components/asideLeft'
+import AsideLeft, { TextInput } from '../src/client/components/asideLeft'
 import Tetris from '../src/client/components/Tetris'
 import io from 'socket.io-client'
 
 configure({ adapter: new Adapter() })
+
+chai.use(chaiEnzyme());
+const expect = chai.expect
 
 const initialState = {}
 
@@ -33,33 +37,37 @@ const store = createStore(
   applyMiddleware(...middleware)
 )
 
-const ReduxProvider = ({ children, reduxStore }) => (
-  <Provider store={reduxStore}>{children}</Provider>
-)
+// const ReduxProvider = ({ children, reduxStore }) => (
+//   <Provider store={reduxStore}>{children}</Provider>
+// )
 
-const socket = io('http://0.0.0.0:3004', {
-  query: 'room=' + window.location.href.split('/')[3]
-})
+// const socket = io('http://0.0.0.0:3004', {
+//   query: 'room=' + window.location.href.split('/')[3]
+// })
 
-describe('<App/> Component', () => {
-  let wrapper;
-  beforeEach(() => { wrapper = shallow(<ReduxProvider reduxStore={store}><App socket={socket}/></ReduxProvider>) })
-  it('expected <App />', () => {
+describe('<AsideLeft/> Component', () => {
+  const tetriminos = new Tetriminos
+  let tetro = []
+  for (let i = 0; i < 5; i++) {
+    tetro.push(tetriminos.randomTetromino())
+  }
+  let wrapper = shallow(
+    <AsideLeft level='0' score='0' shapes={tetro}/>
+  )
+
+  it('expected <AsideLeft />', () => {
     expect(wrapper.length).to.equal(1)
   })
 
-  it('expected child component ContainerText ', () => {
-    expect(wrapper.contains(<ContainerText text="lol"/>))
+  it('contains StagePreview', () => {
+    console.log(wrapper.find(TextInput).children().debug());
+    expect(wrapper.find(TextInput).children()).to.be.present()
+    expect(wrapper).to.contain('StagePreview')
   })
 
-  it('expected child title', () => {
-    expect(wrapper.contains('Text').text()).to.be.equal('RED TETRIS')
+  it('add level 2', () => {
+    const level = 2
   })
-
-  it('expected child component AsideLeft', () => {
-    expect(wrapper.contains(<AsideLeft />))
-  })
-
   // it('expected child <Tetris /> after simulate [enter]', () => {
   //   wrapper.simulate('keypress', {key: 'Enter'})
   //   expect(wrapper.simulate('keypress', {key: 'Enter'}).find(<Tetris />).length === 1)
