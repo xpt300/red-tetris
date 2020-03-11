@@ -1,10 +1,8 @@
 import React from 'react'
-import { shallow, configure } from 'enzyme';
-import { Tetriminos } from '../src/server/models'
-import Adapter from 'enzyme-adapter-react-16'
-import AsideLeft from '../src/client/components/asideLeft'
-
-configure({ adapter: new Adapter() })
+import { shallow } from 'enzyme';
+import { Tetriminos } from '../../../server/models'
+import AsideLeft from '../asideLeft'
+import toJson from "enzyme-to-json"
 
 describe('<AsideLeft/> Component', () => {
   it('rendering correctly with no shapes', () => {
@@ -23,6 +21,6 @@ describe('<AsideLeft/> Component', () => {
     let wrapper = shallow(
       <AsideLeft level='0' score='0' shapes={tetro}/>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
