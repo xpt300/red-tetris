@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cell/> Component rendering correctly Cell with color 1`] = `
+<styled.div
+  color="132, 61, 198"
+  type="T"
+/>
+`;

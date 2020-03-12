@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameOver/> Component rendering correctly GameOver not win 1`] = `
+<span
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100%",
+      "justifyContent": "center",
+      "margin": "auto",
+      "position": "absolute",
+    }
+  }
+>
+  <img
+    alt="perdu"
+    src="game-over.png"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  />
+</span>
+`;
+
+exports[`<GameOver/> Component rendering correctly GameOver win 1`] = `
+<span
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100%",
+      "justifyContent": "center",
+      "margin": "auto",
+      "position": "absolute",
+    }
+  }
+>
+  <img
+    alt="gagne"
+    src="success.png"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+  />
+</span>
+`;

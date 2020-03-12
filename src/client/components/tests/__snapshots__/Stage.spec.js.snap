@@ -1,0 +1,1211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Stage/> Component rendering correctly Stage 1`] = `
+Array [
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="0, 0, 0"
+    key="9"
+    type={0}
+  />,
+]
+`;
+
+exports[`<Stage/> Component rendering correctly StagePreview 1`] = `
+Array [
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="9"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="0"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="1"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="2"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="3"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="4"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="5"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="6"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="7"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="8"
+    type={0}
+  />,
+  <Memo(Cell)
+    color="255, 255, 255"
+    key="9"
+    type={0}
+  />,
+]
+`;

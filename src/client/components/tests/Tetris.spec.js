@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, configure } from 'enzyme';
 import { Provider } from 'react-redux'
-import Adapter from 'enzyme-adapter-react-16'
 import Tetris from '../Tetris';
 import { createStore } from 'redux'
 import reducer from '../../reducers'

@@ -1,0 +1,1006 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StagePhantom/> Component rendering correctly StagePhantom 1`] = `
+Array [
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="0"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="1"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="2"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="3"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="4"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="5"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="6"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="7"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="8"
+    type={0}
+  />,
+  <Memo(CellPhantom)
+    color="128, 128, 128"
+    key="9"
+    type={0}
+  />,
+]
+`;

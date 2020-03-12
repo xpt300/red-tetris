@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AsideLeft/> Component rendering correctly with no shapes 1`] = `ShallowWrapper {}`;
+
+exports[`<AsideLeft/> Component rendering correctly with shapes 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.h1>
+      NEXT
+    </styled.h1>
+    <styled.div>
+      <StagePreview
+        stage={
+          Array [
+            Array [
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+            ],
+            Array [
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+            ],
+            Array [
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+            ],
+            Array [
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+              Array [
+                0,
+                "clear",
+              ],
+            ],
+          ]
+        }
+      />
+    </styled.div>
+    <styled.h1>
+      SCORE
+    </styled.h1>
+    <styled.h2
+      color="#FF3333"
+    >
+      0
+    </styled.h2>
+    <styled.h1>
+      LEVEL
+    </styled.h1>
+    <styled.h2
+      color="#5DFF33"
+    >
+      0
+    </styled.h2>
+  </styled.div>
+</styled.div>
+`;

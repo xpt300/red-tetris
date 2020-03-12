@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContainerText/> Component rendering correctly ContainerText 1`] = `
+<div
+  style={
+    Object {
+      "alignContent": "center",
+      "alignItems": "center",
+      "backgroundColor": "black",
+      "border": "2px solid black",
+      "display": "flex",
+      "height": "80vh",
+      "justifyContent": "center",
+      "width": "40vh",
+    }
+  }
+>
+  <span
+    style={
+      Object {
+        "color": "white",
+        "margin": "20px",
+        "textAlign": "center",
+      }
+    }
+  >
+    lol
+  </span>
+</div>
+`;

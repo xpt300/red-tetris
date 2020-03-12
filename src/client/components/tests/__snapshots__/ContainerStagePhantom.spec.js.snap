@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContainerStagePhantom/> Component rendering correctly ContainerStagePhantom 1`] = `
+<Fragment>
+  <div
+    key="0"
+    style={
+      Object {
+        "alignItems": "stretch",
+        "backgroundColor": "grey",
+        "display": "flex",
+        "flex": "1",
+        "flexWrap": "wrap",
+        "height": "80%",
+        "margin": "10px",
+        "maxWidth": "13.5vh",
+        "position": "relative",
+      }
+    }
+  >
+    <StagePhantom
+      stage={[Function]}
+    />
+    <GameOver
+      win={false}
+    />
+    <styled.h2
+      color="#FF3333"
+    >
+      lol
+    </styled.h2>
+  </div>
+</Fragment>
+`;
