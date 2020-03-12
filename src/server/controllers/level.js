@@ -1,4 +1,4 @@
-export const level = (socket, ope, games, io) => {
+const level = (socket, ope, games, io) => {
     games = games.map(game => {
         if (game.room == socket.addRoom) {
             if (socket.id === game.master['socketId']) {
@@ -14,3 +14,5 @@ export const level = (socket, ope, games, io) => {
     })
     return games
 }
+
+module.exports = level

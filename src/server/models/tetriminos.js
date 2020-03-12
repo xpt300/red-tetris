@@ -1,4 +1,4 @@
-export class Tetriminos {
+class Tetriminos {
     constructor() {
         this.TETROMINOS = {
             I: {
@@ -66,3 +66,5 @@ export class Tetriminos {
         return this.TETROMINOS[randTetromino];
     }
 }
+
+module.exports = Tetriminos

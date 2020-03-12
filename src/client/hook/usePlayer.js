@@ -13,7 +13,6 @@ export const usePlayer = () => {
     });
   
     useEffect(() => {
-      console.log('lsss');
       setPlayer({
         pos: { x: WIDTH / 2 - 2, y: 0 },
         tetromino: shape,

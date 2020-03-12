@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector, useStore } from 'react-redux'
 
-import AsideRight from './components/AsideRight'
+import AsideRight from './components/asideRight'
 import AsideLeft from './components/asideLeft'
 import ContainerText from './components/ContainerText'
 import styled from 'styled-components'
-import Tetris from "./components/Tetris"
+import Tetris from "./components/tetris"
 
 const Container = styled.div`
   display: flex;

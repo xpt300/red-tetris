@@ -1,4 +1,4 @@
-export const score = (socket, score, games) => {
+const score = (socket, score, games) => {
     games = games.map(game => {
         if (game.room == socket.addRoom) {
             game.player = game.player.map(player => {
@@ -13,3 +13,5 @@ export const score = (socket, score, games) => {
     })
     return games
 }
+
+module.exports = score

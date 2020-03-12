@@ -1,6 +1,6 @@
-import { Game, Player, Tetriminos } from '../models'
+const { Game, Player, Tetriminos } = require('../models')
 
-export const restart = (socket, io, games) => {
+const restart = (socket, io, games) => {
   games = games.map(game => {
     if (game.room == socket.addRoom) {
         if (game.master['name'] == socket.name && game.end == true) {
@@ -21,3 +21,5 @@ export const restart = (socket, io, games) => {
     })
     return games
 }
+
+module.exports = restart

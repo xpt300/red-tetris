@@ -1,4 +1,4 @@
-export const disconnectRoom = (socket, games) => {
+const disconnectRoom = (socket, games) => {
     const test = games.filter(games => games.room == socket.addRoom)
     if (test[0] && test[0].master['socketId'] == socket.id) {
       if (test[0].player.length == 1) {
@@ -34,3 +34,5 @@ export const disconnectRoom = (socket, games) => {
     }
     return games
 }
+
+module.exports = disconnectRoom

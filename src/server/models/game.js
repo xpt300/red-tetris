@@ -1,4 +1,4 @@
-export class Game {
+class Game {
     constructor(start, level, room, player) {
         this.level = level
         this.room = room
@@ -9,3 +9,5 @@ export class Game {
         this.pieces = []
     }
 }
+
+module.exports = Game

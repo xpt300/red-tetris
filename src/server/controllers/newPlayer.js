@@ -1,6 +1,6 @@
-import { Game, Player, Tetriminos } from '../models'
+const { Game, Player, Tetriminos } = require('../models')
 
-export const newPlayer = (socket, games) => {
+const newPlayer = (socket, games) => {
     const game = games.filter(games => games.room == socket.addRoom)
     if (!game[0]) {
       if (!socket.addRoom) socket.addRoom = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -39,3 +39,5 @@ export const newPlayer = (socket, games) => {
   }
   return games
 }
+
+module.exports = newPlayer

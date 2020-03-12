@@ -1,4 +1,4 @@
-export class Player {
+class Player {
     constructor(name, socketId) {
         this.name = name
         this.socketId = socketId
@@ -7,3 +7,5 @@ export class Player {
         this.board = []
     }
 }
+
+module.exports = Player

@@ -1,6 +1,6 @@
-import { Tetriminos } from '../models'
+const { Tetriminos } = require('../models')
 
-export const newShapes = (socket, io, games, board, length, fullLine) => {
+const newShapes = (socket, io, games, board, length, fullLine) => {
     let allBoard = []
     const forSend = []
     games = games.map(game => {
@@ -32,3 +32,5 @@ export const newShapes = (socket, io, games, board, length, fullLine) => {
     })
     return games
 }
+
+module.exports = newShapes

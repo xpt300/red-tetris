@@ -1,4 +1,4 @@
-export const endGame = (socket, io, games) => {
+const endGame = (socket, io, games) => {
     games = games.map(game => {
         if (game.room == socket.addRoom) {
             game.player = game.player.map(player => {
@@ -44,3 +44,5 @@ export const endGame = (socket, io, games) => {
     })
     return games
 }
+
+module.exports = endGame

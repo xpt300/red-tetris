@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Win from '../util/images/success.png'
+import End from '../util/images/game-over.png'
+
 const container = {
     position: "absolute",
     margin: 'auto',
@@ -18,7 +21,7 @@ const GameOver = ({win}) => {
         <span style={container}>
             <img
                 style={image}
-                src={win ? '/src/client/util/images/success.png' : '/src/client/util/images/game-over.png'}
+                src={win ? Win : End}
                 alt={win ? "gagne" : "perdu"}
                 />
         </span>

@@ -2,7 +2,7 @@ var http = require('http');
 var express = require('express');
 var app = express();
 
-import { disconnectRoom, newPlayer, startGame, newShapes, score, level, endGame, board, restart } from './controllers/index'
+const { disconnectRoom, newPlayer, startGame, newShapes, score, level, endGame, restart } = require('./controllers/index')
 
 let games = []
 

@@ -1,4 +1,4 @@
-export const startGame = (socket, io, games) => {
+const startGame = (socket, io, games) => {
     games = games.map(game => {
       if (game.room == socket.addRoom) {
         if (game.master['name'] == socket.name && game.start == false) {
@@ -14,3 +14,5 @@ export const startGame = (socket, io, games) => {
     })
     return games
 }
+
+module.exports = startGame

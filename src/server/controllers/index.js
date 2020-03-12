@@ -1,9 +1,11 @@
-export { newPlayer } from './newPlayer'
-export { startGame } from './startGame'
-export { disconnectRoom } from './disconnectRoom'
-export { newShapes } from './newShapes'
-export { score } from './score'
-export { level } from './level'
-export { endGame } from './endGame'
-export { board } from './board'
-export { restart } from './restart'
+module.exports = {
+    newPlayer: require('./newPlayer'),
+    startGame: require('./startGame'),
+    disconnectRoom: require('./disconnectRoom'),
+    newShapes: require('./newShapes'),
+    score: require('./score'),
+    level: require('./level'),
+    endGame: require('./endGame'),
+    board: require('./board'),
+    restart: require('./restart'),
+  };

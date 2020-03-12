@@ -1,4 +1,4 @@
-export const board = (socket, board, games, io) => {
+const board = (socket, board, games, io) => {
     let allBoard = []
     games = games.map(game => {
         if (game.room == socket.addRoom) {
@@ -14,3 +14,5 @@ export const board = (socket, board, games, io) => {
     })
     return games
 }
+
+module.exports = board

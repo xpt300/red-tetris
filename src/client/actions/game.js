@@ -14,7 +14,7 @@ export const RESTART = 'restart'
 
 export const game = (game) => {
   return {
-    type: GAME
+    type: game
   }
 }
 
