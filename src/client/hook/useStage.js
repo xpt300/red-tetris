@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createStage } from '../gameHelper'
-import { useStore, useDispatch } from 'react-redux'
+import { useStore } from 'react-redux'
 
 export const useStage = (player, resetPlayer, newShapes) => {
     const store = useStore()

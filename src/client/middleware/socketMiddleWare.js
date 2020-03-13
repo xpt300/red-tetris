@@ -1,6 +1,5 @@
 const socketMiddleWare = () => {
     return next => (action) => {
-        console.log(action, 'socket middelware');
         if (action.type === 'ROOM') {
             action.socket.emit('newPlayer', {type : 'room'})
             action.socket.on('text', (obj) => {
