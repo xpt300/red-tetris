@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584114574089" clover="3.2.0">
-  <project timestamp="1584114574089" name="All files">
-    <metrics statements="606" coveredstatements="178" conditionals="289" coveredconditionals="36" methods="163" coveredmethods="55" elements="1058" coveredelements="269" complexity="0" loc="606" ncloc="606" packages="9" files="43" classes="43"/>
+<coverage generated="1584202917067" clover="3.2.0">
+  <project timestamp="1584202917067" name="All files">
+    <metrics statements="606" coveredstatements="237" conditionals="289" coveredconditionals="57" methods="163" coveredmethods="75" elements="1058" coveredelements="369" complexity="0" loc="606" ncloc="606" packages="9" files="43" classes="43"/>
     <package name="client">
-      <metrics statements="60" coveredstatements="33" conditionals="30" coveredconditionals="4" methods="22" coveredmethods="9"/>
+      <metrics statements="60" coveredstatements="38" conditionals="30" coveredconditionals="8" methods="22" coveredmethods="10"/>
       <file name="App.js" path="/Users/mjoubert/red_tetris/src/client/App.js">
         <metrics statements="42" coveredstatements="26" conditionals="23" coveredconditionals="4" methods="17" coveredmethods="5"/>
         <line num="10" count="1" type="stmt"/>
@@ -50,19 +50,19 @@
         <line num="98" count="1" type="stmt"/>
       </file>
       <file name="gameHelper.js" path="/Users/mjoubert/red_tetris/src/client/gameHelper.js">
-        <metrics statements="13" coveredstatements="7" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="4"/>
-        <line num="1" count="6" type="stmt"/>
-        <line num="2" count="6" type="stmt"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="5" count="40" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
+        <metrics statements="13" coveredstatements="12" conditionals="7" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="5" count="140" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
         <line num="8" count="16" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="4" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/mjoubert/red_tetris/src/client/index.js">
@@ -78,33 +78,33 @@
       <metrics statements="22" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="alert.js" path="/Users/mjoubert/red_tetris/src/client/actions/alert.js">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
       </file>
       <file name="game.js" path="/Users/mjoubert/red_tetris/src/client/actions/game.js">
         <metrics statements="15" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
       </file>
       <file name="login.js" path="/Users/mjoubert/red_tetris/src/client/actions/login.js">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
       </file>
     </package>
@@ -258,7 +258,7 @@
       </file>
     </package>
     <package name="client.hook">
-      <metrics statements="123" coveredstatements="46" conditionals="38" coveredconditionals="6" methods="51" coveredmethods="19"/>
+      <metrics statements="123" coveredstatements="100" conditionals="38" coveredconditionals="23" methods="51" coveredmethods="38"/>
       <file name="useGameStatus.js" path="/Users/mjoubert/red_tetris/src/client/hook/useGameStatus.js">
         <metrics statements="12" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
         <line num="3" count="2" type="stmt"/>
@@ -286,33 +286,33 @@
         <line num="18" count="2" type="stmt"/>
       </file>
       <file name="usePlayer.js" path="/Users/mjoubert/red_tetris/src/client/hook/usePlayer.js">
-        <metrics statements="26" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="10" coveredmethods="1"/>
+        <metrics statements="26" coveredstatements="25" conditionals="6" coveredconditionals="5" methods="10" coveredmethods="8"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="25" count="32" type="stmt"/>
+        <line num="27" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
       </file>
       <file name="usePlayerPreview.js" path="/Users/mjoubert/red_tetris/src/client/hook/usePlayerPreview.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -332,47 +332,47 @@
         <line num="14" count="2" type="stmt"/>
       </file>
       <file name="useStage.js" path="/Users/mjoubert/red_tetris/src/client/hook/useStage.js">
-        <metrics statements="40" coveredstatements="1" conditionals="18" coveredconditionals="0" methods="15" coveredmethods="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <metrics statements="40" coveredstatements="32" conditionals="18" coveredconditionals="12" methods="15" coveredmethods="12"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="20" type="cond" truecount="2" falsecount="2"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
+        <line num="33" count="20" type="stmt"/>
+        <line num="34" count="20" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="400" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
+        <line num="49" count="32" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="8" type="stmt"/>
+        <line num="58" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
       </file>
       <file name="useStagePreview.js" path="/Users/mjoubert/red_tetris/src/client/hook/useStagePreview.js">
         <metrics statements="26" coveredstatements="16" conditionals="10" coveredconditionals="3" methods="12" coveredmethods="8"/>
@@ -442,16 +442,16 @@
       <metrics statements="25" coveredstatements="12" conditionals="40" coveredconditionals="6" methods="3" coveredmethods="3"/>
       <file name="alert.js" path="/Users/mjoubert/red_tetris/src/client/reducers/alert.js">
         <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="3" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="9" type="cond" truecount="1" falsecount="1"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="8" count="9" type="stmt"/>
       </file>
       <file name="game.js" path="/Users/mjoubert/red_tetris/src/client/reducers/game.js">
         <metrics statements="13" coveredstatements="4" conditionals="31" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="20" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="21" count="3" type="cond" truecount="1" falsecount="9"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="20" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="9" type="cond" truecount="1" falsecount="9"/>
         <line num="23" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
@@ -461,21 +461,21 @@
         <line num="76" count="0" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="92" count="3" type="stmt"/>
+        <line num="92" count="9" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/mjoubert/red_tetris/src/client/reducers/index.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
       </file>
       <file name="login.js" path="/Users/mjoubert/red_tetris/src/client/reducers/login.js">
         <metrics statements="7" coveredstatements="4" conditionals="6" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="3" type="cond" truecount="1" falsecount="2"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="9" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="9" type="cond" truecount="1" falsecount="2"/>
         <line num="12" count="0" type="stmt"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
+        <line num="24" count="9" type="stmt"/>
       </file>
     </package>
     <package name="server">
