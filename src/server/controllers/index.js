@@ -6,6 +6,5 @@ module.exports = {
     score: require('./score'),
     level: require('./level'),
     endGame: require('./endGame'),
-    board: require('./board'),
     restart: require('./restart'),
   };
