@@ -116,7 +116,6 @@ const Tetris = ({ endGame, newShapes, store, handleScore }) => {
         <Stage stage={stage}/>
         {store.end ? <GameOver win={store.win}/> : null}
       </div>
-     
     </Fragment>
   )
 }
