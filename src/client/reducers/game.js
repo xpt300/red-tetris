@@ -18,7 +18,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState , action) => {
-  console.log(action);
   switch(action.type){
     case START:
       return {
@@ -53,14 +52,14 @@ const reducer = (state = initialState , action) => {
           textEnd: action.object.text,
           numberPlayer: action.object.numberPlayer ? action.object.numberPlayer : state.numberPlayer 
         }
-    case NEWSHAPES: 
+    case NEWSHAPES:
       return {
         ...state,
         shapes: action.newShapes.shapes ? state.shapes.concat(action.newShapes.shapes) : state.shapes,
         start: action.newShapes.start ? action.newShapes.start : state.start,
         boardAdversary : action.newShapes.board,
         numberPlayer: action.newShapes.player ? action.newShapes.player : state.numberPlayer,
-        lineFull: action.newShapes.fullLine ? action.newShapes.fullLine : state.lineFull
+        lineFull: action.newShapes.fullLine ? action.newShapes.fullLine + state.lineFull : state.lineFull
       }
     case DELETESHAPE:
       return {

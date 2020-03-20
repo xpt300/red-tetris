@@ -14,12 +14,10 @@ beforeAll((done) => {
   jest.setTimeout(20000);
   httpServer = http.createServer();
   httpServerAddr = httpServer.listen().address();
-  ioServer = ioBack(httpServer)
   done();
 });
 
 afterAll((done) => {
-  ioServer.close();
   httpServer.close();
   done();
 });

@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
 import { createStage } from '../gameHelper'
-import { useStore } from 'react-redux'
+import { useStore, useSelector } from 'react-redux'
+import { usePrevious } from '../hook/usePrevious'
 
 export const useStage = (player, resetPlayer, newShapes) => {
     const store = useStore()
     const [stage, setStage] = useState(createStage());
     const [rowsCleared, setRowsCleared] = useState(0);
-    const fullLine = store.getState().game.lineFull
+    const fullLine = useSelector(state => state.game.lineFull)
+    const prevLine = usePrevious(fullLine)
   
     useEffect(() => {
       const addLine = prev => {
-        for (let i = 0; i < fullLine; i++) {
+        for (let i = 0; i < fullLine - prevLine; i++) {
           prev.shift()
           prev.push(new Array(prev[0].length).fill(['W', 'merged']))
         }
@@ -37,7 +39,7 @@ export const useStage = (player, resetPlayer, newShapes) => {
         else newShapes(newnewStage, 0)
         return newnewStage
       }
-  
+
       const updateStage = prevStage => {
         // First flush the stage
         const newStage = prevStage.map(row =>
@@ -71,6 +73,6 @@ export const useStage = (player, resetPlayer, newShapes) => {
       player.tetromino,
       resetPlayer,
     ]);
-  
+    
     return [stage, setStage, rowsCleared];
   };
