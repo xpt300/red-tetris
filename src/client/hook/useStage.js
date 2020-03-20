@@ -9,16 +9,15 @@ export const useStage = (player, resetPlayer, newShapes) => {
     const [rowsCleared, setRowsCleared] = useState(0);
     const fullLine = useSelector(state => state.game.lineFull)
     const prevLine = usePrevious(fullLine)
+    const [test, setTest] = useState(false)
+    const [ancien, setAncien] = useState(0)
   
     useEffect(() => {
-      const addLine = prev => {
-        for (let i = 0; i < fullLine - prevLine; i++) {
-          prev.shift()
-          prev.push(new Array(prev[0].length).fill(['W', 'merged']))
-        }
-        return prev
+      const addLine = () => {
+        setTest(true)
+        setAncien(prevLine)
       } 
-      if (fullLine > 0 && !store.getState().game.end) setStage(prev => addLine(prev))
+      if (fullLine > 0 && !store.getState().game.end) addLine()
     }, [fullLine]);
 
     useEffect(() => {
@@ -35,6 +34,13 @@ export const useStage = (player, resetPlayer, newShapes) => {
           ack.push(row);
           return ack;
         }, []);
+        if (test === true) {
+          for (let i = 0; i < fullLine - ancien; i++) {
+            newnewStage.shift()
+            newnewStage.push(new Array(newnewStage[0].length).fill(['W', 'merged']))
+            }
+          setTest(false)
+        }
         if (lineDelete > 0) newShapes(newnewStage, lineDelete)
         else newShapes(newnewStage, 0)
         return newnewStage
