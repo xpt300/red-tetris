@@ -12,25 +12,11 @@ export const useStage = (player, resetPlayer, newShapes) => {
     const prevLine = usePrevious(fullLine)
     const [async, setAsync] = useState(false)
     const [ancien, setAncien] = useState(0)
-    const [marge, setMarge] = useState(16)
 
     useEffect(() => {
-      const addLine = (prev) => {
-        setMarge(marge - (fullLine - prevLine))
-        for (let i = 0; i < fullLine - prevLine; i++) {
-          prev.shift()
-          prev.push(new Array(prev[0].length).fill(['W', 'merged']))
-        }
-        return prev
-      } 
       if (fullLine > 0 && !store.getState().game.end) {
-        if (player.pos.y < marge && !async) {
-          setStage(prev => addLine(prev))
-        }
-        else {
-          setAsync(true)
-          setAncien(prevLine)
-        }
+        setAsync(true)
+        setAncien(prevLine)
       }
     }, [fullLine]);
 
@@ -48,13 +34,6 @@ export const useStage = (player, resetPlayer, newShapes) => {
           ack.push(row);
           return ack;
         }, []);
-        if (async) {
-          for (let i = 0; i < fullLine - ancien; i++) {
-            newnewStage.shift()
-            newnewStage.push(new Array(newnewStage[0].length).fill(['W', 'merged']))
-          }
-          setAsync(false)
-        }
         if (lineDelete > 0) newShapes(newnewStage, lineDelete)
         else newShapes(newnewStage, 0)
         return newnewStage
@@ -76,6 +55,13 @@ export const useStage = (player, resetPlayer, newShapes) => {
             }
           });
         });
+        if (async) {
+          for (let i = 0; i < fullLine - ancien; i++) {
+            newStage.shift()
+            newStage.push(new Array(newStage[0].length).fill(['W', 'merged']))
+          }
+          setAsync(false)
+        }
         // Then check if we got some score if collided
         if (player.collided) {
           resetPlayer(store.getState().game.shapes[0].shape);

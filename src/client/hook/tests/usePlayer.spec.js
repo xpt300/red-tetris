@@ -25,8 +25,6 @@ const store = createStore(
   initialState,
 )
 
-// return [player, updatePlayerPos, resetPlayer, playerRotate];
-
 describe('<usePlayer/> HOOK', () => {
   const { result, waitForNextUpdate } = renderHook(() => usePlayer(), {
     wrapper: ({ children }) => <Provider store={store} >{children}</Provider>
@@ -45,13 +43,6 @@ describe('<usePlayer/> HOOK', () => {
       result.current[1]({ x: 0, y: 1, collided: true})
     })
     await waitForNextUpdate
-
-    // expect(result.current[0]).toStrictEqual({"collided": true, "pos": {"x": 0, "y": 1}, "tetromino": [
-    //   ["I", "I", "I", "I"],
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0]
-    // ]})
   });
 
   it('new reset player', async () => {
@@ -61,14 +52,14 @@ describe('<usePlayer/> HOOK', () => {
         [0, "J", 0],
         ["J", "J", 0]
     ])
+    expect(result.current[0]).toStrictEqual({"collided": false, "pos": {"x": 3, "y": 0}, "tetromino": [
+      ["I", "I", "I", "I"],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ]})
     })
     await waitForNextUpdate
-
-    // expect(result.current[0]).toStrictEqual({"collided": true, "pos": {"x": 0, "y": 1}, "tetromino": [
-    //   [0, "J", 0],
-    //   [0, "J", 0],
-    //   ["J", "J", 0]
-    // ]})
   })
 
   it('new player rotate', async () => {
@@ -78,13 +69,13 @@ describe('<usePlayer/> HOOK', () => {
         [0, "J", 0],
         ["J", "J", 0]
     ])
+    expect(result.current[0]).toStrictEqual({"collided": false, "pos": {"x": 3, "y": 0}, "tetromino": [
+      ["I", "I", "I", "I"],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0]
+    ]})
     })
     await waitForNextUpdate
-
-    // expect(result.current[0]).toStrictEqual({"collided": true, "pos": {"x": 0, "y": 1}, "tetromino": [
-    //   [0, "J", 0],
-    //   [0, "J", 0],
-    //   ["J", "J", 0]
-    // ]})
   })
 })

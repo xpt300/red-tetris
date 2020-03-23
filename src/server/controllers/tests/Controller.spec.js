@@ -96,7 +96,7 @@ describe('Test startgame', () => {
     ClientSocket.emit('action', {type: 'start'});
     setTimeout(() => {
       
-      // expect(games[0].player.length).toBe(1);
+      expect(games[0].player.length).toBe(1);
       done();
     }, 50);
   })
@@ -107,8 +107,7 @@ describe('Test level', () => {
     ClientSocket.emit('newPlayer');
     ClientSocket.emit('action', {type: 'level', ope: '+'});
     setTimeout(() => {
-      
-      // expect(games[0].player.length).toBe(1);
+      expect(games[0].player.length).toBe(1);
       done();
     }, 50);
   })
@@ -119,8 +118,7 @@ describe('Test Score', () => {
     ClientSocket.emit('newPlayer');
     ClientSocket.emit('action', {type: 'score', score: 40});
     setTimeout(() => {
-      
-      // expect(games[0].player.length).toBe(1);
+      expect(games[0].player.length).toBe(1);
       done();
     }, 50);
   })
@@ -131,8 +129,7 @@ describe('Test Restart', () => {
     ClientSocket.emit('newPlayer');
     ClientSocket.emit('action', {type: 'restart'});
     setTimeout(() => {
-      
-      // expect(games[0].player.length).toBe(1);
+      expect(games[0].player.length).toBe(1);
       done();
     }, 50);
   })

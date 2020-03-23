@@ -43,12 +43,6 @@ describe('<useStage/> HOOK', () => {
     wrapper: ({ children }) => <Provider store={store} >{children}</Provider>
   });
   it('should not error', () => {
-    // expect(result.current[0]).toStrictEqual({"collided": false, "pos": {"x": 3, "y": 0}, "tetromino": [
-    //   ["I", "I", "I", "I"],
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0],
-    //   [0, 0, 0, 0]
-    // ]})
     expect(result)
   });
 

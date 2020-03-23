@@ -12,9 +12,3 @@ it('should init useGameStatus', () => {
   })
   expect(result.current[4]).toBe(1);
 });
-
-// it('should useGameStatus with 40 score', () => {
-//   const { result } = renderHook(() => useGameStatus(1));
-
-//   expect(result.current[0]).toBe(40);
-// });
