@@ -41,7 +41,7 @@ export const useStage = (player, resetPlayer, newShapes) => {
 
       const updateStage = prevStage => {
         // First flush the stage
-        const newStage = prevStage.map(row =>
+        const newStage = prevStage.map(row => 
           row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell))
         );
         // Then draw the tetromino
@@ -58,6 +58,7 @@ export const useStage = (player, resetPlayer, newShapes) => {
         if (async) {
           for (let i = 0; i < fullLine - ancien; i++) {
             newStage.shift()
+            player.pos.y = player.pos.y - 1 
             newStage.push(new Array(newStage[0].length).fill(['W', 'merged']))
           }
           setAsync(false)

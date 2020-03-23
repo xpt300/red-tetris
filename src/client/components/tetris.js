@@ -110,15 +110,10 @@ const Tetris = ({ endGame, newShapes, store, handleScore }) => {
     drop()
   }
 
-  const stop = () => {
-    setDelay(null)
-  }
-
   return (
     <Fragment>
       <div style={containerTetris}>
         <Stage stage={stage}/>
-        <button onClick={stop}>hihi</button>
         {store.end ? <GameOver win={store.win}/> : null}
       </div>
     </Fragment>
