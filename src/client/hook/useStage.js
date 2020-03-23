@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { createStage } from '../gameHelper'
 import { useStore, useSelector } from 'react-redux'
 import { usePrevious } from '../hook/usePrevious'
+import { checkCollision } from '../gameHelper'
 
 export const useStage = (player, resetPlayer, newShapes) => {
     const store = useStore()
@@ -9,15 +10,28 @@ export const useStage = (player, resetPlayer, newShapes) => {
     const [rowsCleared, setRowsCleared] = useState(0);
     const fullLine = useSelector(state => state.game.lineFull)
     const prevLine = usePrevious(fullLine)
-    const [test, setTest] = useState(false)
+    const [async, setAsync] = useState(false)
     const [ancien, setAncien] = useState(0)
-  
+    const [marge, setMarge] = useState(16)
+
     useEffect(() => {
-      const addLine = () => {
-        setTest(true)
-        setAncien(prevLine)
+      const addLine = (prev) => {
+        setMarge(marge - (fullLine - prevLine))
+        for (let i = 0; i < fullLine - prevLine; i++) {
+          prev.shift()
+          prev.push(new Array(prev[0].length).fill(['W', 'merged']))
+        }
+        return prev
       } 
-      if (fullLine > 0 && !store.getState().game.end) addLine()
+      if (fullLine > 0 && !store.getState().game.end) {
+        if (player.pos.y < marge && !async) {
+          setStage(prev => addLine(prev))
+        }
+        else {
+          setAsync(true)
+          setAncien(prevLine)
+        }
+      }
     }, [fullLine]);
 
     useEffect(() => {
@@ -34,12 +48,12 @@ export const useStage = (player, resetPlayer, newShapes) => {
           ack.push(row);
           return ack;
         }, []);
-        if (test === true) {
+        if (async) {
           for (let i = 0; i < fullLine - ancien; i++) {
             newnewStage.shift()
             newnewStage.push(new Array(newnewStage[0].length).fill(['W', 'merged']))
-            }
-          setTest(false)
+          }
+          setAsync(false)
         }
         if (lineDelete > 0) newShapes(newnewStage, lineDelete)
         else newShapes(newnewStage, 0)

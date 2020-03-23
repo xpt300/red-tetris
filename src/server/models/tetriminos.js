@@ -60,7 +60,8 @@ class Tetriminos {
         };
     }
     randomTetromino() {
-        const tetrominos = "IJLOSTZ";
+        // const tetrominos = "IJLOSTZ";
+        const tetrominos = "I";
         const randTetromino =
             tetrominos[Math.floor(Math.random() * tetrominos.length)];
         return this.TETROMINOS[randTetromino];
