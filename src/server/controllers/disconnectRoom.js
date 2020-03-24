@@ -21,11 +21,12 @@ const disconnectRoom = (socket, games) => {
       }
     } else if (games) {
       games = games.filter(games => {
-        if (games.room == socket.addRoom) {
+        const player = games.player.filter(joueur => joueur.socketId == socket.id)
+        if (games.room == socket.addRoom && player[0]) {
             games.player = games.player.filter(player => player.socketId != socket.id)
             socket.leave(games.room)
             if (games.player.length == 1) {
-              socket.broadcast.in(games.room).emit('end',  {score: games.player[0].score, numberPlayer: 1, text: 'You are the MASTER choose a level and press enter to start again...'})
+              socket.broadcast.in(games.room).emit('end',  {win: true, score: games.player[0].score, numberPlayer: 1, text: 'You are the MASTER choose a level and press enter to start again...'})
               games.end = true
             }
         }

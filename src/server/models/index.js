@@ -1,5 +1,5 @@
 module.exports = {
     Game: require('./game'),
-    Tetriminos: require('./tetriminos'),
+    Tetriminos: require('./piece'),
     Player: require('./player')
   };

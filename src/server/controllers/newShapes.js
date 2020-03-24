@@ -21,7 +21,7 @@ const newShapes = (socket, io, games, board, length, fullLine) => {
             socket.broadcast.in(game.room).emit('shapes', {
                 shapes: forSend ? forSend : null,
                 board: allBoard,
-                fullLine: fullLine
+                fullLine: fullLine > 0 ? fullLine - 1 : 0
             })
             socket.emit('shapes', {
                 shapes: forSend ? forSend : null,

@@ -1,4 +1,4 @@
-class Tetriminos {
+class Piece {
     constructor() {
         this.TETROMINOS = {
             I: {
@@ -67,4 +67,4 @@ class Tetriminos {
     }
 }
 
-module.exports = Tetriminos
+module.exports = Piece

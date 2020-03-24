@@ -7,7 +7,7 @@ const endGame = (socket, io, games) => {
             })
             const filtre = game.player.filter(player => player.end === false)
             if (filtre.length > 1) socket.emit('end', {text: 'Wait for other players to finish their game...'})
-            else {                                                                                                                                                      
+            else {
                 const scoreGame = []
                 game.player = game.player.map(player => {
                     scoreGame.push({name : player.name, score: player.score})

@@ -27,7 +27,7 @@ const ContainerStagePhantom = ({boardAdversary, name}) => {
     return (
         <Fragment>
             {boardAdversary ? boardAdversary.map((adversary, index) => {
-                if (adversary.name !== name) {
+                if (adversary.name != name) {
                     return (
                     <div style={container} key={index}>
                         <StagePhantom stage={adversary.board}/>
