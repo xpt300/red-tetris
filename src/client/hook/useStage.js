@@ -56,9 +56,9 @@ export const useStage = (player, resetPlayer, newShapes) => {
           });
         });
         if (async) {
+          player.pos.y = player.pos.y - 1 
           for (let i = 0; i < fullLine - ancien; i++) {
             newStage.shift()
-            player.pos.y = player.pos.y - 1 
             newStage.push(new Array(newStage[0].length).fill(['W', 'merged']))
           }
           setAsync(false)
