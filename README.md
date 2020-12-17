@@ -1,68 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## RED TETRIS BOILERPLATE - PROJECT 42
 
-## Available Scripts
+This starter kit was made to help students to develop red_tetris project : a Full Stack Javascript Tetris. We can also use it as a starting point for any product made of React / Redux and socket.io.
 
-In the project directory, you can run:
+### `General instruction`
 
-### `npm start`
+The goal of this project is to develop a multiplayer tetris game on the network with a set of software exclusively from Full Stack Javascript.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For play in multiplayer please add hash-bashed url type :
+http://<server_name_or_ip>:<port>/#<room>[<player_name>]
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Front-end has been developed using latest features from ReactJS. State is managed using React Hooks except for sockets for which Redux has been used. Front-end communicates with socket server to handle tetris games.
 
-### `npm test`
+Back-end has been developed using NodeJS and Express.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Socket server has been developed using NodeJS, Express and SocketIO.
 
-### `npm run build`
+### `Skills`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<ul>
+  <li>
+    Object-oriented programming
+  </li>
+  <li>
+    Web
+  </li>
+  <li>
+    Functional programming
+  </li>
+  <li>
+    Technology integration
+   </li>
+</ul>     
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Preview
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](red_tetris_multi.png)
 
-### `npm run eject`
+I created the whole structure of the game in front in hooks with files :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<ul>
+  <li>
+    useGameStatus manage the score, delete lines and points
+  </li>
+  <li>
+    useInterval for automatic movement of parts
+  </li>
+  <li>
+    usePlayer is hook with a state of tetriminos play, with sharpe, position and collided or not. usePlayerPreview is a use for multiplayer display.
+  </li>
+  <li>
+    usePrevious is a hook for save the previous data.
+   </li>
+    <li>
+    useStage is a hook for for the game board. useStagePreview is use for multiplayer display.
+   </li>
+</ul> 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I used redux and created a middleware to emit the datas for socket.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Development Mode
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Install:
 
-## Learn More
+`npm install`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `Launch Server`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm srv, if i don't have install nodemon globally please add this in place "nodemon" : node_modules/.bin/nodemon`
 
-### Code Splitting
+### `Launch Client`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+`npm start`
 
-### Analyzing the Bundle Size
+### `Test`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Please stop server before and 
+`npm run test`
+All the tests are in the test files folders
+`npm run coverage`
