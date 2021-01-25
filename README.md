@@ -70,7 +70,7 @@ Install:
 
 ### `Launch Client`
 
-`npm start change in src/client/index.js the line 'http://localhost:3004' with your ip adresse`
+`npm start change in src/client/index.js the line ''http://0.0.0.0:3004'' with your ip adresse or localhost`
 
 ### `Test`
 
